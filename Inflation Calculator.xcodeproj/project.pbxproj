@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2ECD19E919E0DC7C00C44A00 /* CPIdata.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2ECD19E819E0DC7C00C44A00 /* CPIdata.txt */; };
 		2EE6B10B19E0466F0025D4C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE6B10A19E0466F0025D4C0 /* AppDelegate.swift */; };
 		2EE6B10D19E046700025D4C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE6B10C19E0466F0025D4C0 /* ViewController.swift */; };
 		2EE6B11019E046700025D4C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EE6B10E19E046700025D4C0 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2ECD19E819E0DC7C00C44A00 /* CPIdata.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CPIdata.txt; sourceTree = "<group>"; };
 		2EE6B10519E0466F0025D4C0 /* Inflation Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Inflation Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EE6B10919E0466F0025D4C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2EE6B10A19E0466F0025D4C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 		2EE6B10719E0466F0025D4C0 /* Inflation Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				2ECD19E819E0DC7C00C44A00 /* CPIdata.txt */,
 				2EE6B10A19E0466F0025D4C0 /* AppDelegate.swift */,
 				2EE6B10C19E0466F0025D4C0 /* ViewController.swift */,
 				2EE6B10E19E046700025D4C0 /* Main.storyboard */,
@@ -195,6 +198,7 @@
 				2EE6B11019E046700025D4C0 /* Main.storyboard in Resources */,
 				2EE6B11519E046700025D4C0 /* LaunchScreen.xib in Resources */,
 				2EE6B11219E046700025D4C0 /* Images.xcassets in Resources */,
+				2ECD19E919E0DC7C00C44A00 /* CPIdata.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +411,7 @@
 				2EE6B12619E046700025D4C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2EE6B12719E046700025D4C0 /* Build configuration list for PBXNativeTarget "Inflation CalculatorTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +420,7 @@
 				2EE6B12919E046700025D4C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
