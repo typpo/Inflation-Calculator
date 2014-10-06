@@ -19,7 +19,17 @@ class ViewController: UIViewController, UIPickerViewDelegate {
     @IBOutlet var rightAmountButton: UIButton!
     
     var activeLabel : UILabel? = nil
-    var CPI : Array<Float> = []
+    var CPI : Array<Double> = []
+    
+    var leftAmount : Double = 0
+    var rightAmount : Double = 0
+    var leftTemp : Double = 0
+    var rightTemp : Double = 0
+    
+    var leftDecimal : Bool = false
+    var rightDecimal : Bool = false
+    var leftHasOneDecimal : Bool = false
+    var rightHasOneDecimal : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,10 +37,11 @@ class ViewController: UIViewController, UIPickerViewDelegate {
         //load CPI data
         let bundle = NSBundle.mainBundle()
         let path = bundle.pathForResource("CPIdata", ofType: "txt")
-        let content = String.stringWithContentsOfFile(path!, encoding: NSUTF8StringEncoding, error: nil)
+        var err: NSError? = NSError()
+        let content = String(contentsOfFile: path!, encoding: NSUTF8StringEncoding, error: &err)
         let strings = content?.componentsSeparatedByString("\n")
         for s in strings!{
-            CPI.append(NSString(string: s).floatValue)
+            CPI.append(NSString(string: s).doubleValue)
         }
         
         activeLabel = leftAmountLabel
@@ -43,58 +54,169 @@ class ViewController: UIViewController, UIPickerViewDelegate {
     }
     
     @IBAction func numberButtonPressed(sender: UIButton) {
-        var currentValue = NSString(string: activeLabel!.text!).floatValue
-        currentValue *= 10
-        currentValue += Float(sender.titleLabel!.text!.toInt()!)
-        activeLabel!.text = "\(currentValue)"
+        var currentValue : Double
+        var hasDecimal : Bool
+        var hasOneDecimal : Bool
+        
+        if(activeLabel == leftAmountLabel){
+            currentValue = leftAmount
+            hasDecimal = leftDecimal
+            hasOneDecimal = leftHasOneDecimal
+            rightDecimal = true
+            rightHasOneDecimal = true
+            leftTemp = 0
+            rightTemp = 0
+        } else {
+            currentValue = rightAmount
+            hasDecimal = rightDecimal
+            hasOneDecimal = rightHasOneDecimal
+            leftDecimal = true
+            leftHasOneDecimal = true
+            leftTemp = 0
+            rightTemp = 0
+        }
+        
+        if(currentValue >= 999999999999 && !(hasDecimal)){
+            return;
+        }
+        
+        if(hasDecimal){
+            if(hasOneDecimal){
+                if(String(NSString(format: "%.02f", currentValue)).hasSuffix("0")){
+                   currentValue += Double(sender.titleLabel!.text!.toInt()!) / 100
+                }
+            }else{
+                currentValue += Double(sender.titleLabel!.text!.toInt()!) / 10
+                if(activeLabel == leftAmountLabel){
+                    leftHasOneDecimal = true
+                } else {
+                    rightHasOneDecimal = true
+                }
+            }
+        }
+        
+        else{
+            print(currentValue)
+            currentValue *= 10
+            currentValue += Double(sender.titleLabel!.text!.toInt()!)
+        }
+        
+        if(activeLabel == leftAmountLabel){
+           leftAmount = currentValue
+        } else {
+            rightAmount = currentValue
+        }
+        
         self.updateAmounts()
     }
     
     @IBAction func pointButtonPressed(sender: UIButton) {
-        
+        if(activeLabel == leftAmountLabel && !(leftDecimal)){
+            leftDecimal = true
+            leftHasOneDecimal = false
+        } else if (activeLabel == rightAmountLabel && !(rightDecimal)){
+            rightDecimal = true
+            rightHasOneDecimal = false
+        }
+        updateAmounts()
     }
     
     func updateAmounts() {
-        var activeAmount : Float = NSString(string: activeLabel!.text!).floatValue
-        print(activeAmount)
-        var inactive : UILabel
+        var activeAmount : Double
+        var inactiveLabel : UILabel
         var activeYear : Int
         var inactiveYear : Int
+        var activeHasDecimal : Bool
         if(activeLabel == leftAmountLabel){
+            activeAmount = leftAmount
+            activeHasDecimal = leftDecimal
             activeYear = dateLeft.text!.toInt()!
-            inactive = rightAmountLabel
+            inactiveLabel = rightAmountLabel
             inactiveYear = dateRight.text!.toInt()!
-        }
-        else{
+        } else {
+            activeAmount = rightAmount
+            activeHasDecimal = rightDecimal
             activeYear = dateRight.text!.toInt()!
-            inactive = leftAmountLabel
+            inactiveLabel = leftAmountLabel
             inactiveYear = dateLeft.text!.toInt()!
         }
         
         var activeCPI = CPI[CPI.count - (2015 - activeYear)]
         var inactiveCPI = CPI[CPI.count - (2015 - inactiveYear)]
         
-        var inactiveAmount : Float = activeAmount * (inactiveCPI / activeCPI)
+        var inactiveAmount : Double = activeAmount * (inactiveCPI / activeCPI)
         
-        inactive.text = "\(inactiveAmount)"
+        if(activeLabel == leftAmountLabel){
+            rightAmount = inactiveAmount
+        }else{
+            leftAmount = inactiveAmount
+        }
+        
+        inactiveLabel.text = formatAmount(inactiveAmount, hasDecimal: true)
+        activeLabel!.text = formatAmount(activeAmount, hasDecimal: activeHasDecimal)
+    }
+    
+    func formatAmount(amount:Double, hasDecimal:Bool) -> String {
+        var floatRounded = String(NSString(format: "%.02f", amount))
+        
+        let range = Range<String.Index>(start: floatRounded.startIndex, end: floatRounded.endIndex.predecessor().predecessor().predecessor())
+        var withoutDecimal = floatRounded.substringWithRange(range)
+        
+        
+        var pieces : Array<String> = []
+        while(countElements(withoutDecimal) > 3){
+            var index = withoutDecimal.endIndex.predecessor().predecessor().predecessor()
+            pieces.append(withoutDecimal.substringFromIndex(index))
+            withoutDecimal = withoutDecimal.substringToIndex(index)
+        }
+        pieces.append(withoutDecimal)
+        
+        pieces = pieces.reverse()
+        var moneyFormatted = pieces[0]
+        if(pieces.count > 1){
+            for i in 1...(pieces.count - 1){
+                moneyFormatted += ",\(pieces[i])"
+            }
+        }
+        
+        if(hasDecimal){
+            moneyFormatted += floatRounded.substringFromIndex(range.endIndex)
+        }
+        
+        return "$\(moneyFormatted)"
     }
     
     @IBAction func amountButtonPressed(sender: UIButton) {
         if(sender.tag == 1){ //left button
             activeLabel = leftAmountLabel
-            rightAmountButton.backgroundColor = UIColor(red: 70/255, green: 170/255, blue: 118/255, alpha: 1)
-            leftAmountButton.backgroundColor = UIColor(red: 70/255, green: 170/255, blue: 118/255, alpha: 0.75)
+            rightAmountButton.backgroundColor = UIColor(red: 40/255, green: 154/255, blue: 100/255, alpha: 1)
+            leftAmountButton.backgroundColor = UIColor(red: 14/255, green: 105/255, blue: 56/255, alpha: 1)
+            dateRight.backgroundColor = UIColor(red: 40/255, green: 154/255, blue: 100/255, alpha: 1)
+            dateLeft.backgroundColor = UIColor(red: 17/255, green: 131/255, blue: 76/255, alpha: 1)
+            leftHasOneDecimal = false
+            leftDecimal = false
+            leftTemp = (leftTemp != 0 ? leftTemp : leftAmount)
+            leftAmount = 0
         }
         else{ //right button
             activeLabel = rightAmountLabel
-            leftAmountButton.backgroundColor = UIColor(red: 70/255, green: 170/255, blue: 118/255, alpha: 1)
-            rightAmountButton.backgroundColor = UIColor(red: 70/255, green: 170/255, blue: 118/255, alpha: 0.75)
+            leftAmountButton.backgroundColor = UIColor(red: 40/255, green: 154/255, blue: 100/255, alpha: 1)
+            rightAmountButton.backgroundColor = UIColor(red: 14/255, green: 105/255, blue: 56/255, alpha: 1)
+            dateLeft.backgroundColor = UIColor(red: 40/255, green: 154/255, blue: 100/255, alpha: 1)
+            dateRight.backgroundColor = UIColor(red: 17/255, green: 131/255, blue: 76/255, alpha: 1)
+            rightHasOneDecimal = false
+            rightDecimal = false
+            rightTemp = (rightTemp != 0 ? rightTemp : rightAmount)
+            rightAmount = 0
         }
     }
     
     @IBAction func clearButtonPressed(sender: UIButton) {
-        leftAmountLabel.text = "$0"
-        rightAmountLabel.text = "$0"
+        leftAmount = 0
+        rightAmount = 0
+        leftDecimal = false
+        rightDecimal = false
+        self.updateAmounts()
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -109,17 +231,42 @@ class ViewController: UIViewController, UIPickerViewDelegate {
         return (2014 - 1799)
     }
     
-    func pickerView(pickerView: UIPickerView!, titleForRow row: Int, forComponent component: Int) -> String {
-        return "\(2014 - row)"
+    func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        //let attributedString = NSAttributedString(string: "\(2014 - row)", attributes: [NSForegroundColorAttributeName : UIColor(red: 57/255, green: 150/255, blue: 86/255, alpha: 1)])
+        let attributedString = NSAttributedString(string: "\(2014 - row)", attributes: [NSForegroundColorAttributeName : UIColor(red: 1, green: 1, blue: 1, alpha: 1)])
+        return attributedString
     }
     
     func pickerView(pickerView: UIPickerView!, didSelectRow row: Int, inComponent component: Int) {
         if(component == 0){
             dateLeft.text = String(2014 - row)
+            updateWithTemps()
+            
         }else{
             dateRight.text = String(2014 - row)
+            updateWithTemps()
         }
-        updateAmounts()
+    }
+    
+    func updateWithTemps(){
+        if(leftTemp != 0){
+            leftAmount = leftTemp
+            leftDecimal = true
+        }
+        if(rightTemp != 0){
+            rightAmount = rightTemp
+            rightDecimal = true
+        }
+            updateAmounts()
+        if(leftTemp != 0){
+            leftDecimal = false
+            leftAmount = 0
+        }
+        if(rightTemp != 0){
+            rightDecimal = false
+            rightAmount = 0
+        }
+        
     }
     
 }
