@@ -17,6 +17,7 @@ class ViewController: UIViewController, UIPickerViewDelegate {
     @IBOutlet var leftAmountButton: UIButton!
     @IBOutlet var rightAmountLabel: UILabel!
     @IBOutlet var rightAmountButton: UIButton!
+    @IBOutlet var yearPicker: UIPickerView!
     
     var activeLabel : UILabel? = nil
     var CPI : Array<Double> = []
@@ -33,6 +34,27 @@ class ViewController: UIViewController, UIPickerViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var aspectRatio = Double(self.view.bounds.size.height / self.view.bounds.size.width)
+        
+        if(aspectRatio < 1.7){
+            dateLeft.hidden = true
+            dateRight.hidden = true
+            
+            var constraint = NSLayoutConstraint(item: yearPicker, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: rightAmountLabel, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 25)
+            self.view.addConstraint(constraint)
+            
+        } else {
+            var constraint = NSLayoutConstraint(item: yearPicker, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: dateRight, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 25)
+            self.view.addConstraint(constraint)
+        }
+        
+        print(self.view.bounds.height)
+        
+        if(self.view.bounds.height < 667){ //4S, 5, 5S
+            var constraint = NSLayoutConstraint(item: yearPicker, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: yearPicker, attribute: NSLayoutAttribute.Height, multiplier: 1.97531, constant: 1)
+            self.view.addConstraint(constraint)
+        }
         
         //load CPI data
         let bundle = NSBundle.mainBundle()
