@@ -105,6 +105,7 @@
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
+      customArchiveName = "Inflation Calculator"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2E0C430219E3BA4D000F6ED6 /* aboutSplash.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E0C430119E3BA4D000F6ED6 /* aboutSplash.png */; };
 		2E0C430419E3BC0B000F6ED6 /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0C430319E3BC0B000F6ED6 /* AboutController.swift */; };
+		2E2D42F319E615C100A5802C /* question mark button.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E2D42F219E615C100A5802C /* question mark button.png */; };
+		2E2D42F519E6222700A5802C /* about splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E2D42F419E6222700A5802C /* about splash.png */; };
+		2EB9BBCC19E74ADD00BE87BB /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EB9BBCB19E74ADD00BE87BB /* Launch Screen.xib */; };
 		2ECD19E919E0DC7C00C44A00 /* CPIdata.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2ECD19E819E0DC7C00C44A00 /* CPIdata.txt */; };
 		2EE6B10B19E0466F0025D4C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE6B10A19E0466F0025D4C0 /* AppDelegate.swift */; };
 		2EE6B10D19E046700025D4C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE6B10C19E0466F0025D4C0 /* ViewController.swift */; };
@@ -28,8 +30,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2E0C430119E3BA4D000F6ED6 /* aboutSplash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aboutSplash.png; sourceTree = "<group>"; };
 		2E0C430319E3BC0B000F6ED6 /* AboutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutController.swift; sourceTree = "<group>"; };
+		2E2D42F219E615C100A5802C /* question mark button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "question mark button.png"; sourceTree = "<group>"; };
+		2E2D42F419E6222700A5802C /* about splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about splash.png"; sourceTree = "<group>"; };
+		2EB9BBCB19E74ADD00BE87BB /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Launch Screen.xib"; path = "../Launch Screen.xib"; sourceTree = "<group>"; };
 		2ECD19E819E0DC7C00C44A00 /* CPIdata.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CPIdata.txt; sourceTree = "<group>"; };
 		2EE6B10519E0466F0025D4C0 /* Inflation Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Inflation Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EE6B10919E0466F0025D4C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -80,7 +84,9 @@
 		2EE6B10719E0466F0025D4C0 /* Inflation Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				2E0C430119E3BA4D000F6ED6 /* aboutSplash.png */,
+				2EB9BBCB19E74ADD00BE87BB /* Launch Screen.xib */,
+				2E2D42F419E6222700A5802C /* about splash.png */,
+				2E2D42F219E615C100A5802C /* question mark button.png */,
 				2ECD19E819E0DC7C00C44A00 /* CPIdata.txt */,
 				2EE6B10A19E0466F0025D4C0 /* AppDelegate.swift */,
 				2EE6B10C19E0466F0025D4C0 /* ViewController.swift */,
@@ -199,10 +205,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E0C430219E3BA4D000F6ED6 /* aboutSplash.png in Resources */,
 				2EE6B11019E046700025D4C0 /* Main.storyboard in Resources */,
 				2EE6B11219E046700025D4C0 /* Images.xcassets in Resources */,
+				2E2D42F319E615C100A5802C /* question mark button.png in Resources */,
 				2ECD19E919E0DC7C00C44A00 /* CPIdata.txt in Resources */,
+				2E2D42F519E6222700A5802C /* about splash.png in Resources */,
+				2EB9BBCC19E74ADD00BE87BB /* Launch Screen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,7 +298,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -326,7 +334,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -337,7 +345,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Inflation Calculator/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -351,7 +358,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Inflation Calculator/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;

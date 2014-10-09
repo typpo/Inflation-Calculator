@@ -10,14 +10,18 @@ import UIKit
 
 class ViewController: UIViewController, UIPickerViewDelegate {
     
-    @IBOutlet var dateLeft: UILabel!
-    @IBOutlet var dateRight: UILabel!
+    @IBOutlet var leftYearLabel: UILabel!
+    @IBOutlet var leftYearButton: UIButton!
+    @IBOutlet var rightYearLabel: UILabel!
+    @IBOutlet var rightYearButton: UIButton!
+    
     @IBOutlet var datePicker: UIPickerView!
     @IBOutlet var leftAmountLabel: UILabel!
     @IBOutlet var leftAmountButton: UIButton!
     @IBOutlet var rightAmountLabel: UILabel!
     @IBOutlet var rightAmountButton: UIButton!
     @IBOutlet var yearPicker: UIPickerView!
+    @IBOutlet var clearButton: UIButton!
     
     var activeLabel : UILabel? = nil
     var CPI : Array<Double> = []
@@ -38,14 +42,16 @@ class ViewController: UIViewController, UIPickerViewDelegate {
         var aspectRatio = Double(self.view.bounds.size.height / self.view.bounds.size.width)
         
         if(aspectRatio < 1.7){
-            dateLeft.hidden = true
-            dateRight.hidden = true
+            leftYearLabel.hidden = true
+            rightYearLabel.hidden = true
+            leftYearButton.hidden = true
+            rightYearButton.hidden = true
             
-            var constraint = NSLayoutConstraint(item: yearPicker, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: rightAmountLabel, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 25)
+            var constraint = NSLayoutConstraint(item: yearPicker, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: clearButton, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 30)
             self.view.addConstraint(constraint)
             
         } else {
-            var constraint = NSLayoutConstraint(item: yearPicker, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: dateRight, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 25)
+            var constraint = NSLayoutConstraint(item: yearPicker, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: rightYearLabel, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 25)
             self.view.addConstraint(constraint)
         }
         
@@ -152,15 +158,15 @@ class ViewController: UIViewController, UIPickerViewDelegate {
         if(activeLabel == leftAmountLabel){
             activeAmount = leftAmount
             activeHasDecimal = leftDecimal
-            activeYear = dateLeft.text!.toInt()!
+            activeYear = leftYearLabel.text!.toInt()!
             inactiveLabel = rightAmountLabel
-            inactiveYear = dateRight.text!.toInt()!
+            inactiveYear = rightYearLabel.text!.toInt()!
         } else {
             activeAmount = rightAmount
             activeHasDecimal = rightDecimal
-            activeYear = dateRight.text!.toInt()!
+            activeYear = rightYearLabel.text!.toInt()!
             inactiveLabel = leftAmountLabel
-            inactiveYear = dateLeft.text!.toInt()!
+            inactiveYear = leftYearLabel.text!.toInt()!
         }
         
         var activeCPI = CPI[CPI.count - (2015 - activeYear)]
@@ -213,8 +219,8 @@ class ViewController: UIViewController, UIPickerViewDelegate {
             activeLabel = leftAmountLabel
             rightAmountButton.backgroundColor = UIColor(red: 40/255, green: 154/255, blue: 100/255, alpha: 1)
             leftAmountButton.backgroundColor = UIColor(red: 14/255, green: 105/255, blue: 56/255, alpha: 1)
-            dateRight.backgroundColor = UIColor(red: 40/255, green: 154/255, blue: 100/255, alpha: 1)
-            dateLeft.backgroundColor = UIColor(red: 17/255, green: 131/255, blue: 76/255, alpha: 1)
+            rightYearButton.backgroundColor = UIColor(red: 40/255, green: 154/255, blue: 100/255, alpha: 1)
+            leftYearButton.backgroundColor = UIColor(red: 17/255, green: 131/255, blue: 76/255, alpha: 1)
             leftHasOneDecimal = false
             leftDecimal = false
             leftTemp = (leftTemp != 0 ? leftTemp : leftAmount)
@@ -224,8 +230,8 @@ class ViewController: UIViewController, UIPickerViewDelegate {
             activeLabel = rightAmountLabel
             leftAmountButton.backgroundColor = UIColor(red: 40/255, green: 154/255, blue: 100/255, alpha: 1)
             rightAmountButton.backgroundColor = UIColor(red: 14/255, green: 105/255, blue: 56/255, alpha: 1)
-            dateLeft.backgroundColor = UIColor(red: 40/255, green: 154/255, blue: 100/255, alpha: 1)
-            dateRight.backgroundColor = UIColor(red: 17/255, green: 131/255, blue: 76/255, alpha: 1)
+            leftYearButton.backgroundColor = UIColor(red: 40/255, green: 154/255, blue: 100/255, alpha: 1)
+            rightYearButton.backgroundColor = UIColor(red: 17/255, green: 131/255, blue: 76/255, alpha: 1)
             rightHasOneDecimal = false
             rightDecimal = false
             rightTemp = (rightTemp != 0 ? rightTemp : rightAmount)
@@ -261,11 +267,11 @@ class ViewController: UIViewController, UIPickerViewDelegate {
     
     func pickerView(pickerView: UIPickerView!, didSelectRow row: Int, inComponent component: Int) {
         if(component == 0){
-            dateLeft.text = String(2014 - row)
+            leftYearLabel.text = String(2014 - row)
             updateWithTemps()
             
         }else{
-            dateRight.text = String(2014 - row)
+            rightYearLabel.text = String(2014 - row)
             updateWithTemps()
         }
     }
