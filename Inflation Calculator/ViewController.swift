@@ -77,7 +77,7 @@ class ViewController: UIViewController, UIPickerViewDelegate {
         
         activeLabel = leftAmountLabel
         datePicker.delegate = self
-        datePicker.selectRow(34, inComponent: 0, animated: false)
+        datePicker.selectRow(35, inComponent: 0, animated: false)
     }
 
     override func didReceiveMemoryWarning() {
