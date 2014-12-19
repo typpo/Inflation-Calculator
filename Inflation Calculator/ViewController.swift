@@ -3,7 +3,7 @@
 //  Inflation Calculator
 //
 //  Created by Cal on 10/4/14.
-//  Copyright (c) 2014 Cal. All rights reserved.
+//  Copyright (c) 2015 Cal. All rights reserved.
 //
 
 import UIKit
@@ -55,10 +55,13 @@ class ViewController: UIViewController, UIPickerViewDelegate {
             self.view.addConstraint(constraint)
         }
         
-        print(self.view.bounds.height)
         
         if(self.view.bounds.height < 667){ //4S, 5, 5S
-            var constraint = NSLayoutConstraint(item: yearPicker, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: yearPicker, attribute: NSLayoutAttribute.Height, multiplier: 1.97531, constant: 1)
+            var constraint = NSLayoutConstraint(item: yearPicker, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: yearPicker, attribute: NSLayoutAttribute.Height, multiplier: 1.90531, constant: 1) //1.97531
+            self.view.addConstraint(constraint)
+        }
+        if(self.view.bounds.height > 730){ //6Plus
+            var constraint = NSLayoutConstraint(item: yearPicker, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: yearPicker, attribute: NSLayoutAttribute.Height, multiplier: 1.59, constant: 1)
             self.view.addConstraint(constraint)
         }
         
@@ -169,8 +172,8 @@ class ViewController: UIViewController, UIPickerViewDelegate {
             inactiveYear = leftYearLabel.text!.toInt()!
         }
         
-        var activeCPI = CPI[CPI.count - (2015 - activeYear)]
-        var inactiveCPI = CPI[CPI.count - (2015 - inactiveYear)]
+        var activeCPI = CPI[CPI.count - (2016 - activeYear)]
+        var inactiveCPI = CPI[CPI.count - (2016 - inactiveYear)]
         
         var inactiveAmount : Double = activeAmount * (inactiveCPI / activeCPI)
         
@@ -256,22 +259,22 @@ class ViewController: UIViewController, UIPickerViewDelegate {
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
-        return (2014 - 1799)
+        return (2015 - 1799)
     }
     
     func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        //let attributedString = NSAttributedString(string: "\(2014 - row)", attributes: [NSForegroundColorAttributeName : UIColor(red: 57/255, green: 150/255, blue: 86/255, alpha: 1)])
-        let attributedString = NSAttributedString(string: "\(2014 - row)", attributes: [NSForegroundColorAttributeName : UIColor(red: 1, green: 1, blue: 1, alpha: 1)])
+        //let attributedString = NSAttributedString(string: "\(2016 - row)", attributes: [NSForegroundColorAttributeName : UIColor(red: 57/255, green: 150/255, blue: 86/255, alpha: 1)])
+        let attributedString = NSAttributedString(string: "\(2015 - row)", attributes: [NSForegroundColorAttributeName : UIColor(red: 1, green: 1, blue: 1, alpha: 1)])
         return attributedString
     }
     
     func pickerView(pickerView: UIPickerView!, didSelectRow row: Int, inComponent component: Int) {
         if(component == 0){
-            leftYearLabel.text = String(2014 - row)
+            leftYearLabel.text = String(2015 - row)
             updateWithTemps()
             
         }else{
-            rightYearLabel.text = String(2014 - row)
+            rightYearLabel.text = String(2015 - row)
             updateWithTemps()
         }
     }
