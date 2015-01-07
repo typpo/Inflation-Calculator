@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Inflation Calc WatchKit App.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>Inflation Calculator.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,6 +17,16 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>2EA682351A5CBD2400F39ECF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2EA6823F1A5CBD2400F39ECF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>2EE6B10419E0466F0025D4C0</key>
 		<dict>
 			<key>primary</key>
