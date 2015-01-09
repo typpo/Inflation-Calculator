@@ -21,6 +21,36 @@ class YearController : WKInterfaceController {
     @IBOutlet weak var centurySlider: WKInterfaceSlider!
     @IBOutlet weak var decadeSlider: WKInterfaceSlider!
     @IBOutlet weak var yearSlider: WKInterfaceSlider!
+    //green (1) has identityDummy, blue (2) does not
+    @IBOutlet weak var identityDummy: WKInterfaceLabel?
+    
+    override func willActivate() {
+        if identityDummy != nil {
+            year = "\(Inflation.Data.year1)"
+            centurySlider.setColor(UIColor(red: 10/255, green: 85/255, blue: 119/255, alpha: 1))
+            decadeSlider.setColor(UIColor(red: 10/255, green: 85/255, blue: 119/255, alpha: 1))
+            yearSlider.setColor(UIColor(red: 10/255, green: 85/255, blue: 119/255, alpha: 1))
+        } else {
+            year = "\(Inflation.Data.year2)"
+        }
+        let yearValue = year.toInt()! % 10
+        let decadeValue = (year.toInt()! - yearValue) / 10 % 10
+        let centuryValue = (year.toInt()! - yearValue - decadeValue) / 100
+        
+        yearLabel.setText("\(yearValue)")
+        yearSlider.setValue(Float(yearValue))
+        decadeLabel.setText("\(decadeValue)")
+        decadeSlider.setValue(Float(decadeValue))
+        centuryLabel.setText("\(centuryValue)")
+        centurySlider.setValue(Float(centuryValue))
+        valueLabel.setTitle(year)
+
+    }
+
+    override func didDeactivate() {
+        Inflation.Data.checkDataLoaded()
+        Inflation.Data.updateValuesForCPI(anchor1: identityDummy != nil)
+    }
     
     @IBAction func centuryUpdated(float: Float) {
         let value = Int(float)
@@ -53,6 +83,12 @@ class YearController : WKInterfaceController {
             decadeSlider.setValue(1)
             yearSlider.setValue(5)
             updateLabel()
+        }
+        
+        if identityDummy != nil {
+            Inflation.Data.year1 = year.toInt()!
+        } else {
+            Inflation.Data.year2 = year.toInt()!
         }
     }
     

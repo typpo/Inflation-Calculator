@@ -10,16 +10,17 @@
             <objects>
                 <controller title="Year" id="3DX-CJ-gCs" customClass="YearController" customModule="Inflation_Calc_WatchKit_Extension">
                     <items>
-                        <button width="1" alignment="left" title="1980" id="Dse-vf-lkg">
+                        <label alignment="left" hidden="YES" text="Label" id="F9r-nt-EzJ"/>
+                        <button width="1" alignment="left" id="Dse-vf-lkg">
                             <color key="backgroundColor" red="0.0" green="0.54117647059999996" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="font" style="UICTFontTextStyleBody"/>
                         </button>
                         <group width="1" height="0.23999999999999999" alignment="left" id="ADk-oZ-zJu">
                             <items>
-                                <label width="0.20000000000000001" height="1" alignment="left" text="19" textAlignment="center" numberOfLines="0" id="rrd-w5-rOd">
+                                <label width="0.20000000000000001" height="1" alignment="left" textAlignment="center" numberOfLines="0" id="rrd-w5-rOd">
                                     <fontDescription key="font" style="UICTFontTextStyleBody"/>
                                 </label>
-                                <slider width="0.80000000000000004" height="1" alignment="right" continuous="YES" value="19" minimum="18" maximum="20" steps="2" id="xPf-5u-mtY">
+                                <slider width="0.80000000000000004" height="1" alignment="right" continuous="YES" value="18" minimum="18" maximum="20" steps="2" id="xPf-5u-mtY">
                                     <connections>
                                         <action selector="centuryUpdated:" destination="3DX-CJ-gCs" id="LPc-1y-CKy"/>
                                     </connections>
@@ -28,10 +29,10 @@
                         </group>
                         <group width="1" height="0.23999999999999999" alignment="left" id="dWo-Ck-FiQ">
                             <items>
-                                <label width="0.20000000000000001" height="1" alignment="left" text="8" textAlignment="center" numberOfLines="0" id="7IX-fg-kML">
+                                <label width="0.20000000000000001" height="1" alignment="left" textAlignment="center" numberOfLines="0" id="7IX-fg-kML">
                                     <fontDescription key="font" style="UICTFontTextStyleBody"/>
                                 </label>
-                                <slider width="0.80000000000000004" height="1" alignment="right" continuous="YES" value="8" maximum="9" steps="9" id="NjR-pg-vVN">
+                                <slider width="0.80000000000000004" height="1" alignment="right" continuous="YES" maximum="9" steps="9" id="NjR-pg-vVN">
                                     <connections>
                                         <action selector="decadeUpdated:" destination="3DX-CJ-gCs" id="jlt-ZA-loK"/>
                                     </connections>
@@ -40,7 +41,7 @@
                         </group>
                         <group width="1" height="0.23999999999999999" alignment="left" id="fu4-jn-Pyo">
                             <items>
-                                <label width="0.20000000000000001" height="1" alignment="left" text="0" textAlignment="center" numberOfLines="0" id="UuM-ni-sLz">
+                                <label width="0.20000000000000001" height="1" alignment="left" textAlignment="center" numberOfLines="0" id="UuM-ni-sLz">
                                     <fontDescription key="font" style="UICTFontTextStyleBody"/>
                                 </label>
                                 <slider width="0.80000000000000004" height="1" alignment="right" continuous="YES" maximum="9" steps="9" id="EGA-rL-JO0">
@@ -56,13 +57,14 @@
                         <outlet property="centurySlider" destination="xPf-5u-mtY" id="MZL-Vm-etH"/>
                         <outlet property="decadeLabel" destination="7IX-fg-kML" id="xDq-OF-zhp"/>
                         <outlet property="decadeSlider" destination="NjR-pg-vVN" id="Jje-Ds-1Jc"/>
+                        <outlet property="identityDummy" destination="F9r-nt-EzJ" id="UvO-0s-jaj"/>
                         <outlet property="valueLabel" destination="Dse-vf-lkg" id="VfP-30-XaY"/>
                         <outlet property="yearLabel" destination="UuM-ni-sLz" id="FfO-Fx-JSV"/>
                         <outlet property="yearSlider" destination="EGA-rL-JO0" id="8mi-Cs-Fs2"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="633" y="-40"/>
+            <point key="canvasLocation" x="647" y="-40"/>
         </scene>
         <!--About-->
         <scene sceneID="BXi-MG-9ov">
@@ -93,7 +95,7 @@
                     </items>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="822.97435897435901" y="166.94871794871796"/>
+            <point key="canvasLocation" x="798" y="192.65000078082085"/>
         </scene>
         <!--Inflation-->
         <scene sceneID="aou-V4-d1y">
@@ -140,15 +142,22 @@
                     </items>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <edgeInsets key="margins" left="1" right="1" top="0.0" bottom="0.0"/>
+                    <connections>
+                        <outlet property="dollars1Button" destination="B0h-9k-Dz2" id="AS9-cx-gtf"/>
+                        <outlet property="dollars2Button" destination="LdP-Xp-SB1" id="lH4-P1-8uX"/>
+                        <outlet property="year1Button" destination="ySH-Xu-Isa" id="oiM-Xy-96P"/>
+                        <outlet property="year2Button" destination="ICR-s1-F6m" id="0g9-sg-aQ9"/>
+                    </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="555" y="167"/>
+            <point key="canvasLocation" x="544" y="193"/>
         </scene>
         <!--Dollars-->
         <scene sceneID="1gw-25-GZs">
             <objects>
                 <controller title="Dollars" id="a9u-Ei-gkK" customClass="ValueController" customModule="Inflation_Calc_WatchKit_Extension">
                     <items>
+                        <label alignment="left" hidden="YES" text="Label" id="f27-LK-xEP"/>
                         <label height="0.17999999999999999" alignment="center" text="$0" textAlignment="center" id="si1-8S-kEu"/>
                         <group width="1" height="0.20000000000000015" alignment="left" id="HMg-l2-qnm">
                             <items>
@@ -252,6 +261,7 @@
                         </group>
                     </items>
                     <connections>
+                        <outlet property="identityDummy" destination="f27-LK-xEP" id="hHP-E5-re3"/>
                         <outlet property="label" destination="si1-8S-kEu" id="heS-Nj-fZl"/>
                     </connections>
                 </controller>
@@ -263,16 +273,16 @@
             <objects>
                 <controller identifier="Year 1" title="Year" id="gqY-7v-A8d" customClass="YearController" customModule="Inflation_Calc_WatchKit_Extension">
                     <items>
-                        <button width="1" alignment="left" title="2015" id="iBk-ui-axb">
+                        <button width="1" alignment="left" id="iBk-ui-axb">
                             <color key="backgroundColor" red="0.039215686270000001" green="0.33333333329999998" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="font" style="UICTFontTextStyleBody"/>
                         </button>
                         <group width="1" height="0.23999999999999999" alignment="left" id="S8R-z2-s23">
                             <items>
-                                <label width="0.20000000000000001" height="1" alignment="left" text="20" textAlignment="center" numberOfLines="0" id="Y4n-d3-8Za">
+                                <label width="0.20000000000000001" height="1" alignment="left" textAlignment="center" numberOfLines="0" id="Y4n-d3-8Za">
                                     <fontDescription key="font" style="UICTFontTextStyleBody"/>
                                 </label>
-                                <slider width="0.80000000000000004" height="1" alignment="right" continuous="YES" value="20" minimum="18" maximum="20" steps="2" id="Yr6-iM-naz">
+                                <slider width="0.80000000000000004" height="1" alignment="right" continuous="YES" value="18" minimum="18" maximum="20" steps="2" id="Yr6-iM-naz">
                                     <connections>
                                         <action selector="centuryUpdated:" destination="gqY-7v-A8d" id="JMz-Xb-Djy"/>
                                     </connections>
@@ -281,10 +291,10 @@
                         </group>
                         <group width="1" height="0.23999999999999999" alignment="left" id="T4R-6B-dcP">
                             <items>
-                                <label width="0.20000000000000001" height="1" alignment="left" text="1" textAlignment="center" numberOfLines="0" id="3UC-4e-6Im">
+                                <label width="0.20000000000000001" height="1" alignment="left" textAlignment="center" numberOfLines="0" id="3UC-4e-6Im">
                                     <fontDescription key="font" style="UICTFontTextStyleBody"/>
                                 </label>
-                                <slider width="0.80000000000000004" height="1" alignment="right" continuous="YES" value="1" maximum="9" steps="9" id="Rr4-vW-eiY">
+                                <slider width="0.80000000000000004" height="1" alignment="right" continuous="YES" maximum="9" steps="9" id="Rr4-vW-eiY">
                                     <connections>
                                         <action selector="decadeUpdated:" destination="gqY-7v-A8d" id="jfJ-v0-fkV"/>
                                     </connections>
@@ -293,10 +303,10 @@
                         </group>
                         <group width="1" height="0.23999999999999999" alignment="left" id="gAs-MC-2B7">
                             <items>
-                                <label width="0.20000000000000001" height="1" alignment="left" text="5" textAlignment="center" numberOfLines="0" id="kuM-hl-wKy">
+                                <label width="0.20000000000000001" height="1" alignment="left" textAlignment="center" numberOfLines="0" id="kuM-hl-wKy">
                                     <fontDescription key="font" style="UICTFontTextStyleBody"/>
                                 </label>
-                                <slider width="0.80000000000000004" height="1" alignment="right" continuous="YES" value="5" maximum="9" steps="9" id="WjS-Va-UUH">
+                                <slider width="0.80000000000000004" height="1" alignment="right" continuous="YES" maximum="9" steps="9" id="WjS-Va-UUH">
                                     <connections>
                                         <action selector="yearUpdated:" destination="gqY-7v-A8d" id="93j-hI-PNS"/>
                                     </connections>

@@ -18,6 +18,27 @@ class ValueController : WKInterfaceController {
     var currentValue : Double = 0
     var decimalState : DecimalState = .Disabled
     @IBOutlet weak var label: WKInterfaceLabel!
+    //green (1) has identityDummy, blue (2) does not
+    @IBOutlet weak var identityDummy: WKInterfaceLabel?
+    
+   /*
+    override func willActivate() {
+        currentValue = (identityDummy != nil ? Inflation.Data.dollars1 : Inflation.Data.dollars2)
+        decimalState = .Full
+        if currentValue % 0.1 == 0 {
+            decimalState = .ReadyTwo
+        }
+        if currentValue % 1 == 0 {
+            decimalState = .Disabled
+        }
+        updateLabel()
+    }
+    */
+    
+    override func didDeactivate() {
+        Inflation.Data.checkDataLoaded()
+        Inflation.Data.updateValuesForCPI(anchor1: identityDummy != nil)
+    }
     
     func numberButtonPressed(value: Int){
         if decimalState == .ReadyOne {
@@ -29,6 +50,9 @@ class ValueController : WKInterfaceController {
             decimalState = .Full
         }
         else if decimalState == .Disabled{
+            if currentValue >= 10_000_000 {
+                return
+            }
             currentValue *= 10
             currentValue += Double(value)
         }
@@ -48,7 +72,12 @@ class ValueController : WKInterfaceController {
     
     
     func updateLabel(){
-        label.setText(formatAmount(currentValue, decimalState != .Disabled))
+        label.setText(formatAmount(currentValue))
+        if identityDummy != nil {
+            Inflation.Data.dollars1 = currentValue
+        } else {
+            Inflation.Data.dollars2 = currentValue
+        }
     }
     
     @IBAction func button1() {
@@ -93,8 +122,9 @@ class ValueController : WKInterfaceController {
     
 }
 
-func formatAmount(amount:Double, hasDecimal:Bool) -> String {
-    var floatRounded = String(NSString(format: "%.02f", amount))
+func formatAmount(amount:Double) -> String {
+    let hasDecimal = amount % 1 != 0
+    let floatRounded = String(NSString(format: "%.02f", amount))
     
     let range = Range<String.Index>(start: floatRounded.startIndex, end: floatRounded.endIndex.predecessor().predecessor().predecessor())
     var withoutDecimal = floatRounded.substringWithRange(range)
