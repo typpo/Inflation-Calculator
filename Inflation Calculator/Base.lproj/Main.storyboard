@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6724" systemVersion="14A388b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D105g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -213,18 +213,6 @@
                                     <action selector="numberButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="4Uc-BL-lJi"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0V-t2-h8m">
-                                <rect key="frame" x="213" y="243" width="45" height="45"/>
-                                <color key="backgroundColor" red="0.027450980390000001" green="0.2470588235" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title=".">
-                                    <color key="titleColor" red="0.98433554290000003" green="0.97873657150000004" blue="0.97768825910000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="pointButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="4O3-Ex-Jxs"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mzu-PR-dNa">
                                 <rect key="frame" x="263" y="243" width="45" height="45"/>
                                 <color key="backgroundColor" red="0.027450980390000001" green="0.2470588235" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -299,6 +287,18 @@
                                 </state>
                                 <connections>
                                     <segue destination="3N2-mF-rr0" kind="presentation" modalTransitionStyle="flipHorizontal" id="R1D-bC-diY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0V-t2-h8m">
+                                <rect key="frame" x="213" y="243" width="45" height="45"/>
+                                <color key="backgroundColor" red="0.027450980390000001" green="0.2470588235" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title=".">
+                                    <color key="titleColor" red="0.98433554290000003" green="0.97873657150000004" blue="0.97768825910000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pointButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="4O3-Ex-Jxs"/>
                                 </connections>
                             </button>
                         </subviews>
