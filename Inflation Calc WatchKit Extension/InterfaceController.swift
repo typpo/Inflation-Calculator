@@ -41,9 +41,11 @@ class Inflation {
         static var dollars1 : Double = 0
         static var dollars2 : Double = 0
         static var year1 : Int = 1980
-        static var year2 : Int = 2015
+        static var year2 : Int = 2016
         
-        static func updateValuesForCPI(#anchor1 : Bool){
+        static var anchor1: Bool = true
+        
+        static func updateValuesForCPI(){
             var anchorAmount = dollars1
             var anchorYear = year1
             var modifyAmount = dollars2
@@ -54,8 +56,8 @@ class Inflation {
                 modifyAmount = dollars1
                 modifyYear = year1
             }
-            var anchorCPI = CPI[CPI.count - (2016 - anchorYear)]
-            var modifyCPI = CPI[CPI.count - (2016 - modifyYear)]
+            let anchorCPI = CPI[CPI.count - (2017 - anchorYear)]
+            let modifyCPI = CPI[CPI.count - (2017 - modifyYear)]
             modifyAmount = anchorAmount * (modifyCPI / anchorCPI)
             if anchor1 {
                 dollars2 = modifyAmount
@@ -69,16 +71,16 @@ class Inflation {
             if CPI.count == 0 {
                 let bundle = NSBundle.mainBundle()
                 let path = bundle.pathForResource("CPIdata", ofType: "txt")
-                var err: NSError? = NSError()
-                let content = String(contentsOfFile: path!, encoding: NSUTF8StringEncoding, error: &err)
-                let strings = content?.componentsSeparatedByString("\n")
-                for s in strings!{
+                let content = try! String(contentsOfFile: path!, encoding: NSUTF8StringEncoding)
+                
+                let strings = content.componentsSeparatedByString("\n")
+                for s in strings {
                     CPI.append(NSString(string: s).doubleValue)
                 }
             }
         }
         
-        static func updateLabels(#anchor1 : Bool) {
+        static func updateLabels(anchor1 anchor1 : Bool) {
             mainInterface?.year1Button.setTitle("\(Inflation.Data.year1)")
             mainInterface?.year2Button.setTitle("\(Inflation.Data.year2)")
             mainInterface?.dollars1Button.setTitle("\(formatAmount(Inflation.Data.dollars1))")

@@ -37,7 +37,8 @@ class ValueController : WKInterfaceController {
     
     override func didDeactivate() {
         Inflation.Data.checkDataLoaded()
-        Inflation.Data.updateValuesForCPI(anchor1: identityDummy != nil)
+        Inflation.Data.anchor1 = identityDummy != nil
+        Inflation.Data.updateValuesForCPI()
     }
     
     func numberButtonPressed(value: Int){
@@ -70,9 +71,8 @@ class ValueController : WKInterfaceController {
         updateLabel()
     }
     
-    
     func updateLabel(){
-        label.setText(formatAmount(currentValue))
+        label.setText(formatAmount(currentValue, forceDecimal: self.decimalState != .Disabled))
         if identityDummy != nil {
             Inflation.Data.dollars1 = currentValue
         } else {
@@ -122,7 +122,7 @@ class ValueController : WKInterfaceController {
     
 }
 
-func formatAmount(amount:Double) -> String {
+func formatAmount(amount:Double, forceDecimal: Bool = false) -> String {
     let hasDecimal = amount % 1 != 0
     let floatRounded = String(NSString(format: "%.02f", amount))
     
@@ -131,14 +131,14 @@ func formatAmount(amount:Double) -> String {
     
     
     var pieces : Array<String> = []
-    while(countElements(withoutDecimal) > 3){
-        var index = withoutDecimal.endIndex.predecessor().predecessor().predecessor()
+    while(withoutDecimal.characters.count > 3){
+        let index = withoutDecimal.endIndex.predecessor().predecessor().predecessor()
         pieces.append(withoutDecimal.substringFromIndex(index))
         withoutDecimal = withoutDecimal.substringToIndex(index)
     }
     pieces.append(withoutDecimal)
     
-    pieces = pieces.reverse()
+    pieces = Array(pieces.reverse())
     var moneyFormatted = pieces[0]
     if(pieces.count > 1){
         for i in 1...(pieces.count - 1){
@@ -146,7 +146,7 @@ func formatAmount(amount:Double) -> String {
         }
     }
     
-    if(hasDecimal){
+    if (hasDecimal || forceDecimal) {
         moneyFormatted += floatRounded.substringFromIndex(range.endIndex)
     }
     

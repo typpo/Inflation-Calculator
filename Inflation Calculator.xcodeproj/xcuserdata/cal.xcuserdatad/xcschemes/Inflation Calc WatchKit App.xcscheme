@@ -14,6 +14,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2EA6823F1A5CBD2400F39ECF"
+               BuildableName = "Inflation.app"
+               BlueprintName = "Inflation"
+               ReferencedContainer = "container:Inflation Calculator.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "2EE6B10419E0466F0025D4C0"
                BuildableName = "Inflation Calculator.app"
                BlueprintName = "Inflation Calculator"
@@ -23,14 +37,14 @@
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2EE6B11919E046700025D4C0"
-               BuildableName = "Inflation CalculatorTests.xctest"
-               BlueprintName = "Inflation CalculatorTests"
+               BlueprintIdentifier = "2EA682351A5CBD2400F39ECF"
+               BuildableName = "Inflation Calc WatchKit Extension.appex"
+               BlueprintName = "Inflation Calc WatchKit Extension"
                ReferencedContainer = "container:Inflation Calculator.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -42,23 +56,13 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2EE6B11919E046700025D4C0"
-               BuildableName = "Inflation CalculatorTests.xctest"
-               BlueprintName = "Inflation CalculatorTests"
-               ReferencedContainer = "container:Inflation Calculator.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2EE6B10419E0466F0025D4C0"
-            BuildableName = "Inflation Calculator.app"
-            BlueprintName = "Inflation Calculator"
+            BlueprintIdentifier = "2EA6823F1A5CBD2400F39ECF"
+            BuildableName = "Inflation.app"
+            BlueprintName = "Inflation"
             ReferencedContainer = "container:Inflation Calculator.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -75,16 +79,27 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.springboard"
+         RemotePath = "/Inflation Calc">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2EE6B10419E0466F0025D4C0"
-            BuildableName = "Inflation Calculator.app"
-            BlueprintName = "Inflation Calculator"
+            BlueprintIdentifier = "2EA6823F1A5CBD2400F39ECF"
+            BuildableName = "Inflation.app"
+            BlueprintName = "Inflation"
             ReferencedContainer = "container:Inflation Calculator.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </RemoteRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "2EA6823F1A5CBD2400F39ECF"
+            BuildableName = "Inflation.app"
+            BlueprintName = "Inflation"
+            ReferencedContainer = "container:Inflation Calculator.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -94,23 +109,33 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.springboard"
+         RemotePath = "/Inflation Calc">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2EE6B10419E0466F0025D4C0"
-            BuildableName = "Inflation Calculator.app"
-            BlueprintName = "Inflation Calculator"
+            BlueprintIdentifier = "2EA6823F1A5CBD2400F39ECF"
+            BuildableName = "Inflation.app"
+            BlueprintName = "Inflation"
             ReferencedContainer = "container:Inflation Calculator.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </RemoteRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "2EA6823F1A5CBD2400F39ECF"
+            BuildableName = "Inflation.app"
+            BlueprintName = "Inflation"
+            ReferencedContainer = "container:Inflation Calculator.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
-      customArchiveName = "Inflation Calculator"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

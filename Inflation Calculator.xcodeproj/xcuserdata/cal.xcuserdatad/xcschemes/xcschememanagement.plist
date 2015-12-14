@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>Inflation Calculator Watch.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>Inflation Calculator.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -33,6 +38,11 @@
 			<true/>
 		</dict>
 		<key>2EE6B11919E046700025D4C0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2EE9C1CA1C1E40270009BCBB</key>
 		<dict>
 			<key>primary</key>
 			<true/>

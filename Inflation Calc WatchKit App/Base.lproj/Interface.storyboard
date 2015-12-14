@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6724" systemVersion="14A388b" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3735"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9515"/>
     </dependencies>
     <scenes>
         <!--Year-->
         <scene sceneID="Ghv-cc-fFB">
             <objects>
-                <controller title="Year" id="3DX-CJ-gCs" customClass="YearController" customModule="Inflation_Calc_WatchKit_Extension">
+                <controller title="Year" id="3DX-CJ-gCs" customClass="YearController" customModule="Inflation_Calculator_Watch_Extension">
                     <items>
                         <label alignment="left" hidden="YES" text="Label" id="F9r-nt-EzJ"/>
-                        <button width="1" alignment="left" id="Dse-vf-lkg">
-                            <color key="backgroundColor" red="0.0" green="0.54117647059999996" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
-                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
-                        </button>
-                        <group width="1" height="0.23999999999999999" alignment="left" id="ADk-oZ-zJu">
+                        <picker height="0.29999999999999999" alignment="left" focusStyle="stack" id="RnB-55-fb1">
+                            <connections>
+                                <action selector="yearPicked:" destination="3DX-CJ-gCs" id="0f7-wj-6nf"/>
+                            </connections>
+                        </picker>
+                        <group width="1" height="0.22500000000000001" alignment="left" id="ADk-oZ-zJu">
                             <items>
                                 <label width="0.20000000000000001" height="1" alignment="left" textAlignment="center" numberOfLines="0" id="rrd-w5-rOd">
                                     <fontDescription key="font" style="UICTFontTextStyleBody"/>
@@ -27,7 +28,7 @@
                                 </slider>
                             </items>
                         </group>
-                        <group width="1" height="0.23999999999999999" alignment="left" id="dWo-Ck-FiQ">
+                        <group width="1" height="0.22500000000000001" alignment="left" id="dWo-Ck-FiQ">
                             <items>
                                 <label width="0.20000000000000001" height="1" alignment="left" textAlignment="center" numberOfLines="0" id="7IX-fg-kML">
                                     <fontDescription key="font" style="UICTFontTextStyleBody"/>
@@ -39,7 +40,7 @@
                                 </slider>
                             </items>
                         </group>
-                        <group width="1" height="0.23999999999999999" alignment="left" id="fu4-jn-Pyo">
+                        <group width="1" height="0.22500000000000001" alignment="left" id="fu4-jn-Pyo">
                             <items>
                                 <label width="0.20000000000000001" height="1" alignment="left" textAlignment="center" numberOfLines="0" id="UuM-ni-sLz">
                                     <fontDescription key="font" style="UICTFontTextStyleBody"/>
@@ -58,83 +59,59 @@
                         <outlet property="decadeLabel" destination="7IX-fg-kML" id="xDq-OF-zhp"/>
                         <outlet property="decadeSlider" destination="NjR-pg-vVN" id="Jje-Ds-1Jc"/>
                         <outlet property="identityDummy" destination="F9r-nt-EzJ" id="UvO-0s-jaj"/>
-                        <outlet property="valueLabel" destination="Dse-vf-lkg" id="VfP-30-XaY"/>
                         <outlet property="yearLabel" destination="UuM-ni-sLz" id="FfO-Fx-JSV"/>
+                        <outlet property="yearPicker" destination="RnB-55-fb1" id="hUs-cZ-ySc"/>
                         <outlet property="yearSlider" destination="EGA-rL-JO0" id="8mi-Cs-Fs2"/>
                     </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="647" y="-40"/>
         </scene>
-        <!--About-->
-        <scene sceneID="BXi-MG-9ov">
-            <objects>
-                <controller title="About" id="3aJ-7c-3f4">
-                    <items>
-                        <button width="1" height="0.14999999999999999" alignment="left" title="Inflation Calculator" id="29B-vi-RwU">
-                            <color key="backgroundColor" red="0.0" green="0.54117647059999996" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
-                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
-                        </button>
-                        <button width="1" height="0.14999999999999999" alignment="left" title="1800 - 2015" id="lRk-CQ-iS3">
-                            <color key="backgroundColor" red="0.039215686270000001" green="0.33333333329999998" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
-                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
-                        </button>
-                        <label width="1" alignment="left" text="Watch app by" textAlignment="center" numberOfLines="2" id="fR9-un-7HW">
-                            <variation key="device=watch38mm" text="Watch app by"/>
-                            <variation key="device=watch42mm" text="Watch app by"/>
-                        </label>
-                        <label width="1" alignment="left" text="Cal Stephens" textAlignment="center" numberOfLines="2" id="CBn-hk-8Vp">
-                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
-                        </label>
-                        <label width="1" alignment="left" text="Data published by The Federal Reserve Bank of Minneapolis" textAlignment="center" lineHeight="1" numberOfLines="5" id="FKP-8i-EZh">
-                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
-                        </label>
-                        <label width="1" alignment="left" text="Icon by Jacob Wall" textAlignment="center" numberOfLines="2" id="qey-uh-PmT">
-                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
-                        </label>
-                    </items>
-                </controller>
-            </objects>
-            <point key="canvasLocation" x="798" y="192.65000078082085"/>
-        </scene>
         <!--Inflation-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller title="Inflation" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Inflation_Calc_WatchKit_App" customModuleProvider="target">
+                <controller title="Inflation" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Inflation_Calculator_Watch_Extension">
                     <items>
-                        <button width="1" height="0.19" alignment="left" title="Inflation Calculator" id="gac-5i-bEe">
-                            <color key="backgroundColor" red="0.0" green="0.33725490196078434" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
-                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
-                            <connections>
-                                <segue destination="3aJ-7c-3f4" kind="push" id="iUt-fo-91d"/>
-                            </connections>
-                        </button>
-                        <button width="1" widthAdjustment="-1" height="0.29999999999999999" alignment="left" title="$0" id="B0h-9k-Dz2">
+                        <button width="1" widthAdjustment="-1" height="0.34000000000000002" alignment="left" title="$0" id="B0h-9k-Dz2">
                             <color key="backgroundColor" red="0.0" green="0.54117647059999996" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
-                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                            <fontDescription key="font" type="system" pointSize="20"/>
+                            <variation key="device=watch42mm">
+                                <fontDescription key="font" type="system" pointSize="22"/>
+                            </variation>
                             <connections>
                                 <segue destination="a9u-Ei-gkK" kind="push" id="gg2-Ag-3Mp"/>
                             </connections>
                         </button>
-                        <group width="1" height="0.19" alignment="left" id="zPh-MF-Typ">
+                        <group width="1" height="0.29999999999999999" alignment="left" id="zPh-MF-Typ">
                             <items>
                                 <button width="0.5" height="1" alignment="left" title="1980" id="ySH-Xu-Isa">
                                     <color key="backgroundColor" red="0.0" green="0.54117647059999996" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="font" type="system" weight="medium" pointSize="20"/>
+                                    <variation key="device=watch42mm">
+                                        <fontDescription key="font" type="system" weight="medium" pointSize="22"/>
+                                    </variation>
                                     <connections>
                                         <segue destination="3DX-CJ-gCs" kind="push" id="KOh-TS-Id3"/>
                                     </connections>
                                 </button>
-                                <button width="0.5" height="1" alignment="left" title="2015" id="ICR-s1-F6m">
+                                <button width="0.5" height="1" alignment="left" title="2016" id="ICR-s1-F6m">
                                     <color key="backgroundColor" red="0.039215686274509803" green="0.33333333333333331" blue="0.46666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="font" type="system" weight="medium" pointSize="20"/>
+                                    <variation key="device=watch42mm">
+                                        <fontDescription key="font" type="system" weight="medium" pointSize="22"/>
+                                    </variation>
                                     <connections>
                                         <segue destination="gqY-7v-A8d" kind="push" id="NdY-wh-qJ9"/>
                                     </connections>
                                 </button>
                             </items>
                         </group>
-                        <button width="1" height="0.29999999999999999" alignment="left" title="$0" id="LdP-Xp-SB1">
+                        <button width="1" height="0.34000000000000002" alignment="left" title="$0" id="LdP-Xp-SB1">
                             <color key="backgroundColor" red="0.039215686270000001" green="0.33333333329999998" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
-                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                            <fontDescription key="font" type="system" pointSize="20"/>
+                            <variation key="device=watch42mm">
+                                <fontDescription key="font" type="system" pointSize="22"/>
+                            </variation>
                             <connections>
                                 <segue destination="bdy-mP-vMu" kind="push" id="sZE-Oh-Mjf"/>
                             </connections>
@@ -155,29 +132,31 @@
         <!--Dollars-->
         <scene sceneID="1gw-25-GZs">
             <objects>
-                <controller title="Dollars" id="a9u-Ei-gkK" customClass="ValueController" customModule="Inflation_Calc_WatchKit_Extension">
+                <controller title="Dollars" id="a9u-Ei-gkK" customClass="ValueController" customModule="Inflation_Calculator_Watch_Extension">
                     <items>
                         <label alignment="left" hidden="YES" text="Label" id="f27-LK-xEP"/>
-                        <label height="0.17999999999999999" alignment="center" text="$0" textAlignment="center" id="si1-8S-kEu"/>
+                        <label height="0.17999999999999999" alignment="center" text="$0" textAlignment="center" id="si1-8S-kEu">
+                            <fontDescription key="font" type="system" pointSize="22"/>
+                        </label>
                         <group width="1" height="0.20000000000000015" alignment="left" id="HMg-l2-qnm">
                             <items>
                                 <button width="0.33333000000000002" height="1" alignment="center" title="1" id="wYa-GV-s68">
                                     <color key="backgroundColor" red="0.0" green="0.54117647059999996" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                    <fontDescription key="font" type="system" pointSize="22"/>
                                     <connections>
                                         <action selector="button1" destination="a9u-Ei-gkK" id="YSL-9a-oyq"/>
                                     </connections>
                                 </button>
                                 <button width="0.33333000000000002" height="1" alignment="center" title="2" id="c65-oy-uAC">
                                     <color key="backgroundColor" red="0.0" green="0.54117647059999996" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                    <fontDescription key="font" type="system" pointSize="22"/>
                                     <connections>
                                         <action selector="button2" destination="a9u-Ei-gkK" id="huY-ln-iJg"/>
                                     </connections>
                                 </button>
                                 <button width="0.33333000000000002" height="1" alignment="center" title="3" id="SPu-4C-Wlf">
                                     <color key="backgroundColor" red="0.0" green="0.54117647059999996" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                    <fontDescription key="font" type="system" pointSize="22"/>
                                     <connections>
                                         <action selector="button3" destination="a9u-Ei-gkK" id="k5i-Sb-155"/>
                                     </connections>
@@ -188,21 +167,21 @@
                             <items>
                                 <button width="0.33333000000000002" height="1" alignment="center" title="4" id="tEz-El-mne">
                                     <color key="backgroundColor" red="0.0" green="0.54117647059999996" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                    <fontDescription key="font" type="system" pointSize="22"/>
                                     <connections>
                                         <action selector="button4" destination="a9u-Ei-gkK" id="h6A-ec-Hje"/>
                                     </connections>
                                 </button>
                                 <button width="0.33333000000000002" height="1" alignment="center" title="5" id="k2E-sm-DVN">
                                     <color key="backgroundColor" red="0.0" green="0.54117647059999996" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                    <fontDescription key="font" type="system" pointSize="22"/>
                                     <connections>
                                         <action selector="button5" destination="a9u-Ei-gkK" id="i8K-AH-2Yg"/>
                                     </connections>
                                 </button>
                                 <button width="0.33333000000000002" height="1" alignment="center" title="6" id="y9i-ru-zJj">
                                     <color key="backgroundColor" red="0.0" green="0.54117647059999996" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                    <fontDescription key="font" type="system" pointSize="22"/>
                                     <connections>
                                         <action selector="button6" destination="a9u-Ei-gkK" id="CPQ-hV-uzO"/>
                                     </connections>
@@ -213,21 +192,21 @@
                             <items>
                                 <button width="0.33333000000000002" height="1" alignment="center" title="7" id="CJj-oQ-Ue3">
                                     <color key="backgroundColor" red="0.0" green="0.54117647059999996" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                    <fontDescription key="font" type="system" pointSize="22"/>
                                     <connections>
                                         <action selector="button7" destination="a9u-Ei-gkK" id="evm-mt-OmB"/>
                                     </connections>
                                 </button>
                                 <button width="0.33333000000000002" height="1" alignment="center" title="8" id="P5e-Gf-zxu">
                                     <color key="backgroundColor" red="0.0" green="0.54117647059999996" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                    <fontDescription key="font" type="system" pointSize="22"/>
                                     <connections>
                                         <action selector="button8" destination="a9u-Ei-gkK" id="L2Z-nY-5FC"/>
                                     </connections>
                                 </button>
                                 <button width="0.33333000000000002" height="1" alignment="center" title="9" id="ZxB-On-33n">
                                     <color key="backgroundColor" red="0.0" green="0.54117647059999996" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                    <fontDescription key="font" type="system" pointSize="22"/>
                                     <connections>
                                         <action selector="button9" destination="a9u-Ei-gkK" id="VHb-a3-t1h"/>
                                     </connections>
@@ -238,21 +217,21 @@
                             <items>
                                 <button width="0.33333000000000002" height="1" alignment="center" title="0" id="gdN-sg-n2q">
                                     <color key="backgroundColor" red="0.0" green="0.54117647059999996" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                    <fontDescription key="font" type="system" pointSize="22"/>
                                     <connections>
                                         <action selector="button0" destination="a9u-Ei-gkK" id="4Nk-J1-GOi"/>
                                     </connections>
                                 </button>
                                 <button width="0.33333000000000002" height="1" alignment="center" title="." id="JjY-zP-O7P">
                                     <color key="backgroundColor" red="0.039215686270000001" green="0.33333333329999998" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                    <fontDescription key="font" type="system" weight="black" pointSize="20"/>
                                     <connections>
                                         <action selector="decimalButton" destination="a9u-Ei-gkK" id="NM2-a4-Rs1"/>
                                     </connections>
                                 </button>
                                 <button width="0.33333000000000002" height="1" alignment="center" title="c" id="nw4-8t-ye5">
                                     <color key="backgroundColor" red="0.039215686270000001" green="0.33333333329999998" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                    <fontDescription key="font" type="system" pointSize="22"/>
                                     <connections>
                                         <action selector="clearButton" destination="a9u-Ei-gkK" id="RMD-Ci-XXS"/>
                                     </connections>
@@ -271,13 +250,14 @@
         <!--Year-->
         <scene sceneID="FiH-hB-2cw">
             <objects>
-                <controller identifier="Year 1" title="Year" id="gqY-7v-A8d" customClass="YearController" customModule="Inflation_Calc_WatchKit_Extension">
+                <controller identifier="Year 1" title="Year" id="gqY-7v-A8d" customClass="YearController" customModule="Inflation_Calculator_Watch_Extension">
                     <items>
-                        <button width="1" alignment="left" id="iBk-ui-axb">
-                            <color key="backgroundColor" red="0.039215686270000001" green="0.33333333329999998" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
-                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
-                        </button>
-                        <group width="1" height="0.23999999999999999" alignment="left" id="S8R-z2-s23">
+                        <picker height="0.29999999999999999" alignment="left" focusStyle="stack" id="UMY-SW-DeN">
+                            <connections>
+                                <action selector="yearPicked:" destination="gqY-7v-A8d" id="SM4-qk-VGj"/>
+                            </connections>
+                        </picker>
+                        <group width="1" height="0.22500000000000001" alignment="left" id="S8R-z2-s23">
                             <items>
                                 <label width="0.20000000000000001" height="1" alignment="left" textAlignment="center" numberOfLines="0" id="Y4n-d3-8Za">
                                     <fontDescription key="font" style="UICTFontTextStyleBody"/>
@@ -289,7 +269,7 @@
                                 </slider>
                             </items>
                         </group>
-                        <group width="1" height="0.23999999999999999" alignment="left" id="T4R-6B-dcP">
+                        <group width="1" height="0.22500000000000001" alignment="left" id="T4R-6B-dcP">
                             <items>
                                 <label width="0.20000000000000001" height="1" alignment="left" textAlignment="center" numberOfLines="0" id="3UC-4e-6Im">
                                     <fontDescription key="font" style="UICTFontTextStyleBody"/>
@@ -301,7 +281,7 @@
                                 </slider>
                             </items>
                         </group>
-                        <group width="1" height="0.23999999999999999" alignment="left" id="gAs-MC-2B7">
+                        <group width="1" height="0.22500000000000001" alignment="left" id="gAs-MC-2B7">
                             <items>
                                 <label width="0.20000000000000001" height="1" alignment="left" textAlignment="center" numberOfLines="0" id="kuM-hl-wKy">
                                     <fontDescription key="font" style="UICTFontTextStyleBody"/>
@@ -319,8 +299,8 @@
                         <outlet property="centurySlider" destination="Yr6-iM-naz" id="oyS-ZP-poR"/>
                         <outlet property="decadeLabel" destination="3UC-4e-6Im" id="9rO-hQ-kKN"/>
                         <outlet property="decadeSlider" destination="Rr4-vW-eiY" id="kTb-c8-E0I"/>
-                        <outlet property="valueLabel" destination="iBk-ui-axb" id="ZcW-Cr-ppM"/>
                         <outlet property="yearLabel" destination="kuM-hl-wKy" id="q2H-gw-aPa"/>
+                        <outlet property="yearPicker" destination="UMY-SW-DeN" id="MOU-Pa-gGr"/>
                         <outlet property="yearSlider" destination="WjS-Va-UUH" id="JbA-kV-rhM"/>
                     </connections>
                 </controller>
@@ -330,28 +310,30 @@
         <!--Dollars-->
         <scene sceneID="2wK-Ea-UL4">
             <objects>
-                <controller title="Dollars" id="bdy-mP-vMu" customClass="ValueController" customModule="Inflation_Calc_WatchKit_Extension">
+                <controller title="Dollars" id="bdy-mP-vMu" customClass="ValueController" customModule="Inflation_Calculator_Watch_Extension">
                     <items>
-                        <label height="0.17999999999999999" alignment="center" text="$0" textAlignment="center" id="yoA-eo-FXG"/>
+                        <label height="0.17999999999999999" alignment="center" text="$0" textAlignment="center" id="yoA-eo-FXG">
+                            <fontDescription key="font" type="system" pointSize="22"/>
+                        </label>
                         <group width="1" height="0.20000000000000015" alignment="left" id="kLM-4c-0Lr">
                             <items>
                                 <button width="0.33333000000000002" height="1" alignment="center" title="1" id="o1c-sF-foB">
                                     <color key="backgroundColor" red="0.039215686270000001" green="0.33333333329999998" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                    <fontDescription key="font" type="system" pointSize="22"/>
                                     <connections>
                                         <action selector="button1" destination="bdy-mP-vMu" id="scY-Vv-D1J"/>
                                     </connections>
                                 </button>
                                 <button width="0.33333000000000002" height="1" alignment="center" title="2" id="Mkq-dT-qZP">
                                     <color key="backgroundColor" red="0.039215686270000001" green="0.33333333329999998" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                    <fontDescription key="font" type="system" pointSize="22"/>
                                     <connections>
                                         <action selector="button2" destination="bdy-mP-vMu" id="j65-Cp-y7N"/>
                                     </connections>
                                 </button>
                                 <button width="0.33333000000000002" height="1" alignment="center" title="3" id="svb-hW-Jc3">
                                     <color key="backgroundColor" red="0.039215686270000001" green="0.33333333329999998" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                    <fontDescription key="font" type="system" pointSize="22"/>
                                     <connections>
                                         <action selector="button3" destination="bdy-mP-vMu" id="TDg-MM-IVp"/>
                                     </connections>
@@ -362,21 +344,21 @@
                             <items>
                                 <button width="0.33333000000000002" height="1" alignment="center" title="4" id="i8r-TU-kOX">
                                     <color key="backgroundColor" red="0.039215686270000001" green="0.33333333329999998" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                    <fontDescription key="font" type="system" pointSize="22"/>
                                     <connections>
                                         <action selector="button4" destination="bdy-mP-vMu" id="hRU-bI-MnM"/>
                                     </connections>
                                 </button>
                                 <button width="0.33333000000000002" height="1" alignment="center" title="5" id="4JY-tZ-J5R">
                                     <color key="backgroundColor" red="0.039215686270000001" green="0.33333333329999998" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                    <fontDescription key="font" type="system" pointSize="22"/>
                                     <connections>
                                         <action selector="button5" destination="bdy-mP-vMu" id="fxD-3e-PYS"/>
                                     </connections>
                                 </button>
                                 <button width="0.33333000000000002" height="1" alignment="center" title="6" id="qCi-qG-dpT">
                                     <color key="backgroundColor" red="0.039215686270000001" green="0.33333333329999998" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                    <fontDescription key="font" type="system" pointSize="22"/>
                                     <connections>
                                         <action selector="button6" destination="bdy-mP-vMu" id="DVL-1K-NXz"/>
                                     </connections>
@@ -387,21 +369,21 @@
                             <items>
                                 <button width="0.33333000000000002" height="1" alignment="center" title="7" id="UrA-mI-bRH">
                                     <color key="backgroundColor" red="0.039215686270000001" green="0.33333333329999998" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                    <fontDescription key="font" type="system" pointSize="22"/>
                                     <connections>
                                         <action selector="button7" destination="bdy-mP-vMu" id="61w-AR-lYF"/>
                                     </connections>
                                 </button>
                                 <button width="0.33333000000000002" height="1" alignment="center" title="8" id="yyw-sT-aay">
                                     <color key="backgroundColor" red="0.039215686270000001" green="0.33333333329999998" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                    <fontDescription key="font" type="system" pointSize="22"/>
                                     <connections>
                                         <action selector="button8" destination="bdy-mP-vMu" id="G54-0C-rdh"/>
                                     </connections>
                                 </button>
                                 <button width="0.33333000000000002" height="1" alignment="center" title="9" id="gdU-eX-dos">
                                     <color key="backgroundColor" red="0.039215686270000001" green="0.33333333329999998" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                    <fontDescription key="font" type="system" pointSize="22"/>
                                     <connections>
                                         <action selector="button9" destination="bdy-mP-vMu" id="9N5-q1-kR0"/>
                                     </connections>
@@ -412,21 +394,21 @@
                             <items>
                                 <button width="0.33333000000000002" height="1" alignment="center" title="0" id="1SM-FW-2fH">
                                     <color key="backgroundColor" red="0.039215686270000001" green="0.33333333329999998" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                    <fontDescription key="font" type="system" pointSize="22"/>
                                     <connections>
                                         <action selector="button0" destination="bdy-mP-vMu" id="oWj-WJ-ZZu"/>
                                     </connections>
                                 </button>
                                 <button width="0.33333000000000002" height="1" alignment="center" title="." id="SjU-qO-znN">
                                     <color key="backgroundColor" red="0.0" green="0.54117647059999996" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                    <fontDescription key="font" type="system" weight="black" pointSize="20"/>
                                     <connections>
                                         <action selector="decimalButton" destination="bdy-mP-vMu" id="7sp-aA-AnX"/>
                                     </connections>
                                 </button>
                                 <button width="0.33333000000000002" height="1" alignment="center" title="c" id="YDe-Gh-3eD">
                                     <color key="backgroundColor" red="0.0" green="0.54117647059999996" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                    <fontDescription key="font" type="system" pointSize="22"/>
                                     <connections>
                                         <action selector="clearButton" destination="bdy-mP-vMu" id="C46-u2-xBg"/>
                                     </connections>

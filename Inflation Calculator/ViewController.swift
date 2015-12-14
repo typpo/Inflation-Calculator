@@ -8,6 +8,9 @@
 
 import UIKit
 
+let ICOpenCountKey = "ICOpenCountKey"
+let ICNeverAskForRateKey = "ICNeverAskForRateKey"
+
 class ViewController: UIViewController, UIPickerViewDelegate {
     
     @IBOutlet var leftYearLabel: UILabel!
@@ -39,7 +42,7 @@ class ViewController: UIViewController, UIPickerViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var aspectRatio = Double(self.view.bounds.size.height / self.view.bounds.size.width)
+        let aspectRatio = Double(self.view.bounds.size.height / self.view.bounds.size.width)
         
         if(aspectRatio < 1.7){
             leftYearLabel.hidden = true
@@ -47,39 +50,67 @@ class ViewController: UIViewController, UIPickerViewDelegate {
             leftYearButton.hidden = true
             rightYearButton.hidden = true
             
-            var constraint = NSLayoutConstraint(item: yearPicker, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: clearButton, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 30)
+            let constraint = NSLayoutConstraint(item: yearPicker, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: clearButton, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 30)
             self.view.addConstraint(constraint)
             
         } else {
-            var constraint = NSLayoutConstraint(item: yearPicker, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: rightYearLabel, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 25)
+            let constraint = NSLayoutConstraint(item: yearPicker, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: rightYearLabel, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 25)
             self.view.addConstraint(constraint)
         }
         
         
         if(self.view.bounds.height < 667){ //4S, 5, 5S
-            var constraint = NSLayoutConstraint(item: yearPicker, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: yearPicker, attribute: NSLayoutAttribute.Height, multiplier: 1.90531, constant: 1) //1.97531
+            let constraint = NSLayoutConstraint(item: yearPicker, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: yearPicker, attribute: NSLayoutAttribute.Height, multiplier: 1.90531, constant: 1) //1.97531
             self.view.addConstraint(constraint)
         }
         if(self.view.bounds.height > 730){ //6Plus
-            var constraint = NSLayoutConstraint(item: yearPicker, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: yearPicker, attribute: NSLayoutAttribute.Height, multiplier: 1.59, constant: 1)
+            let constraint = NSLayoutConstraint(item: yearPicker, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: yearPicker, attribute: NSLayoutAttribute.Height, multiplier: 1.59, constant: 1)
             self.view.addConstraint(constraint)
         }
         
         //load CPI data
         let bundle = NSBundle.mainBundle()
         let path = bundle.pathForResource("CPIdata", ofType: "txt")
-        var err: NSError? = NSError()
-        let content = String(contentsOfFile: path!, encoding: NSUTF8StringEncoding, error: &err)
-        let strings = content?.componentsSeparatedByString("\n")
-        for s in strings!{
+        let content = try! String(contentsOfFile: path!, encoding: NSUTF8StringEncoding)
+        let strings = content.componentsSeparatedByString("\n")
+        for s in strings {
             CPI.append(NSString(string: s).doubleValue)
         }
         
         activeLabel = leftAmountLabel
         datePicker.delegate = self
-        datePicker.selectRow(35, inComponent: 0, animated: false)
+        datePicker.selectRow(36, inComponent: 0, animated: false)
     }
 
+    override func viewDidAppear(animated: Bool) {
+        UIApplication.sharedApplication().openURL(NSURL(string: "itms-apps://appsto.re/us/Wyip3.i")!)
+        
+        if animated { return }
+        //update open count and show alert if appropriate
+        let data = NSUserDefaults.standardUserDefaults()
+        if !data.boolForKey(ICNeverAskForRateKey) {
+            let openCount = data.integerForKey(ICOpenCountKey) + 1
+            data.setInteger(openCount, forKey: ICOpenCountKey)
+            
+            if openCount % 3 == 0 { //show alert
+                let alert = UIAlertController(title: "Rate Inflation Calculator?", message: "If you love Inflation Calculator, would you mind giving it a rating on the App Store? It'll only take a sec.", preferredStyle: .Alert)
+                
+                alert.addAction(UIAlertAction(title: "Sure", style: .Default, handler: { _ in
+                    data.setBool(true, forKey: ICNeverAskForRateKey)
+                    UIApplication.sharedApplication().openURL(NSURL(string: "itms-apps://appsto.re/us/Wyip3.i")!)
+                }))
+                
+                alert.addAction(UIAlertAction(title: "Later", style: .Cancel, handler: nil))
+                
+                alert.addAction(UIAlertAction(title: "No, don't ask again", style: .Destructive, handler: { _ in
+                    data.setBool(true, forKey: ICNeverAskForRateKey)
+                }))
+                
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -114,10 +145,10 @@ class ViewController: UIViewController, UIPickerViewDelegate {
         if(hasDecimal){
             if(hasOneDecimal){
                 if(String(NSString(format: "%.02f", currentValue)).hasSuffix("0")){
-                   currentValue += Double(sender.titleLabel!.text!.toInt()!) / 100
+                   currentValue += Double(Int(sender.titleLabel!.text!)!) / 100
                 }
             }else{
-                currentValue += Double(sender.titleLabel!.text!.toInt()!) / 10
+                currentValue += Double(Int(sender.titleLabel!.text!)!) / 10
                 if(activeLabel == leftAmountLabel){
                     leftHasOneDecimal = true
                 } else {
@@ -127,9 +158,8 @@ class ViewController: UIViewController, UIPickerViewDelegate {
         }
         
         else{
-            print(currentValue)
             currentValue *= 10
-            currentValue += Double(sender.titleLabel!.text!.toInt()!)
+            currentValue += Double(Int(sender.titleLabel!.text!)!)
         }
         
         if(activeLabel == leftAmountLabel){
@@ -161,21 +191,21 @@ class ViewController: UIViewController, UIPickerViewDelegate {
         if(activeLabel == leftAmountLabel){
             activeAmount = leftAmount
             activeHasDecimal = leftDecimal
-            activeYear = leftYearLabel.text!.toInt()!
+            activeYear = Int(leftYearLabel.text!)!
             inactiveLabel = rightAmountLabel
-            inactiveYear = rightYearLabel.text!.toInt()!
+            inactiveYear = Int(rightYearLabel.text!)!
         } else {
             activeAmount = rightAmount
             activeHasDecimal = rightDecimal
-            activeYear = rightYearLabel.text!.toInt()!
+            activeYear = Int(rightYearLabel.text!)!
             inactiveLabel = leftAmountLabel
-            inactiveYear = leftYearLabel.text!.toInt()!
+            inactiveYear = Int(leftYearLabel.text!)!
         }
         
-        var activeCPI = CPI[CPI.count - (2016 - activeYear)]
-        var inactiveCPI = CPI[CPI.count - (2016 - inactiveYear)]
+        let activeCPI = CPI[CPI.count - (2017 - activeYear)]
+        let inactiveCPI = CPI[CPI.count - (2017 - inactiveYear)]
         
-        var inactiveAmount : Double = activeAmount * (inactiveCPI / activeCPI)
+        let inactiveAmount : Double = activeAmount * (inactiveCPI / activeCPI)
         
         if(activeLabel == leftAmountLabel){
             rightAmount = inactiveAmount
@@ -188,21 +218,21 @@ class ViewController: UIViewController, UIPickerViewDelegate {
     }
     
     func formatAmount(amount:Double, hasDecimal:Bool) -> String {
-        var floatRounded = String(NSString(format: "%.02f", amount))
+        let floatRounded = String(NSString(format: "%.02f", amount))
         
         let range = Range<String.Index>(start: floatRounded.startIndex, end: floatRounded.endIndex.predecessor().predecessor().predecessor())
         var withoutDecimal = floatRounded.substringWithRange(range)
         
         
         var pieces : Array<String> = []
-        while(countElements(withoutDecimal) > 3){
-            var index = withoutDecimal.endIndex.predecessor().predecessor().predecessor()
+        while(withoutDecimal.characters.count > 3){
+            let index = withoutDecimal.endIndex.predecessor().predecessor().predecessor()
             pieces.append(withoutDecimal.substringFromIndex(index))
             withoutDecimal = withoutDecimal.substringToIndex(index)
         }
         pieces.append(withoutDecimal)
         
-        pieces = pieces.reverse()
+        pieces = Array(pieces.reverse())
         var moneyFormatted = pieces[0]
         if(pieces.count > 1){
             for i in 1...(pieces.count - 1){
@@ -259,22 +289,22 @@ class ViewController: UIViewController, UIPickerViewDelegate {
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
-        return (2015 - 1799)
+        return (2016 - 1799)
     }
     
     func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         //let attributedString = NSAttributedString(string: "\(2016 - row)", attributes: [NSForegroundColorAttributeName : UIColor(red: 57/255, green: 150/255, blue: 86/255, alpha: 1)])
-        let attributedString = NSAttributedString(string: "\(2015 - row)", attributes: [NSForegroundColorAttributeName : UIColor(red: 1, green: 1, blue: 1, alpha: 1)])
+        let attributedString = NSAttributedString(string: "\(2016 - row)", attributes: [NSForegroundColorAttributeName : UIColor(red: 1, green: 1, blue: 1, alpha: 1)])
         return attributedString
     }
     
-    func pickerView(pickerView: UIPickerView!, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if(component == 0){
-            leftYearLabel.text = String(2015 - row)
+            leftYearLabel.text = String(2016 - row)
             updateWithTemps()
             
         }else{
-            rightYearLabel.text = String(2015 - row)
+            rightYearLabel.text = String(2016 - row)
             updateWithTemps()
         }
     }
