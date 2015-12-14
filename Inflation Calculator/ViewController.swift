@@ -83,8 +83,6 @@ class ViewController: UIViewController, UIPickerViewDelegate {
     }
 
     override func viewDidAppear(animated: Bool) {
-        UIApplication.sharedApplication().openURL(NSURL(string: "itms-apps://appsto.re/us/Wyip3.i")!)
-        
         if animated { return }
         //update open count and show alert if appropriate
         let data = NSUserDefaults.standardUserDefaults()
