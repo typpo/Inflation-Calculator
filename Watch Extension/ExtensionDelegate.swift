@@ -1,8 +1,8 @@
 //
 //  ExtensionDelegate.swift
-//  Inflation Calculator Watch Extension
+//  Watch Extension
 //
-//  Created by Cal on 12/13/15.
+//  Created by Cal on 12/14/15.
 //  Copyright © 2015 Cal. All rights reserved.
 //
 

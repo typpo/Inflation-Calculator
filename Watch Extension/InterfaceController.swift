@@ -65,6 +65,8 @@ class Inflation {
                 dollars1 = modifyAmount
             }
             updateLabels(anchor1: anchor1)
+            
+            WKInterfaceDevice.currentDevice().playHaptic(WKHapticType.Click)
         }
         
         static func checkDataLoaded() {

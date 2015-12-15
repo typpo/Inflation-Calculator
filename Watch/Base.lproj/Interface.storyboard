@@ -8,7 +8,7 @@
         <!--Year-->
         <scene sceneID="Ghv-cc-fFB">
             <objects>
-                <controller title="Year" id="3DX-CJ-gCs" customClass="YearController" customModule="Inflation_Calculator_Watch_Extension">
+                <controller title="Year" id="3DX-CJ-gCs" customClass="YearController" customModule="Watch_Extension">
                     <items>
                         <label alignment="left" hidden="YES" text="Label" id="F9r-nt-EzJ"/>
                         <picker height="0.29999999999999999" alignment="left" focusStyle="stack" id="RnB-55-fb1">
@@ -70,7 +70,7 @@
         <!--Inflation-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller title="Inflation" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Inflation_Calculator_Watch_Extension">
+                <controller title="Inflation" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Watch_Extension">
                     <items>
                         <button width="1" widthAdjustment="-1" height="0.34000000000000002" alignment="left" title="$0" id="B0h-9k-Dz2">
                             <color key="backgroundColor" red="0.0" green="0.54117647059999996" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -132,7 +132,7 @@
         <!--Dollars-->
         <scene sceneID="1gw-25-GZs">
             <objects>
-                <controller title="Dollars" id="a9u-Ei-gkK" customClass="ValueController" customModule="Inflation_Calculator_Watch_Extension">
+                <controller title="Dollars" id="a9u-Ei-gkK" customClass="ValueController" customModule="Watch_Extension">
                     <items>
                         <label alignment="left" hidden="YES" text="Label" id="f27-LK-xEP"/>
                         <label height="0.17999999999999999" alignment="center" text="$0" textAlignment="center" id="si1-8S-kEu">
@@ -250,7 +250,7 @@
         <!--Year-->
         <scene sceneID="FiH-hB-2cw">
             <objects>
-                <controller identifier="Year 1" title="Year" id="gqY-7v-A8d" customClass="YearController" customModule="Inflation_Calculator_Watch_Extension">
+                <controller identifier="Year 1" title="Year" id="gqY-7v-A8d" customClass="YearController" customModule="Watch_Extension">
                     <items>
                         <picker height="0.29999999999999999" alignment="left" focusStyle="stack" id="UMY-SW-DeN">
                             <connections>
@@ -310,7 +310,7 @@
         <!--Dollars-->
         <scene sceneID="2wK-Ea-UL4">
             <objects>
-                <controller title="Dollars" id="bdy-mP-vMu" customClass="ValueController" customModule="Inflation_Calculator_Watch_Extension">
+                <controller title="Dollars" id="bdy-mP-vMu" customClass="ValueController" customModule="Watch_Extension">
                     <items>
                         <label height="0.17999999999999999" alignment="center" text="$0" textAlignment="center" id="yoA-eo-FXG">
                             <fontDescription key="font" type="system" pointSize="22"/>

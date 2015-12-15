@@ -10,11 +10,16 @@
 		2E0C430419E3BC0B000F6ED6 /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0C430319E3BC0B000F6ED6 /* AboutController.swift */; };
 		2E2D42F319E615C100A5802C /* question mark button.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E2D42F219E615C100A5802C /* question mark button.png */; };
 		2E2D42F519E6222700A5802C /* about splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E2D42F419E6222700A5802C /* about splash.png */; };
-		2E7D8CC61C1E43310031499D /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA6823A1A5CBD2400F39ECF /* InterfaceController.swift */; };
-		2E7D8CC71C1E43340031499D /* ValueController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA6825A1A5CD7FC00F39ECF /* ValueController.swift */; };
-		2E7D8CC81C1E43370031499D /* YearController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA6825C1A5CDAFE00F39ECF /* YearController.swift */; };
-		2E7D8CC91C1E433F0031499D /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EA682471A5CBD2400F39ECF /* Interface.storyboard */; };
-		2E7D8CCA1C1E43440031499D /* CPIdata.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2E04C0711A5F5ED8007F2187 /* CPIdata.txt */; };
+		2E7D8CD21C1F85660031499D /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E7D8CD01C1F85660031499D /* Interface.storyboard */; };
+		2E7D8CD41C1F85660031499D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E7D8CD31C1F85660031499D /* Assets.xcassets */; };
+		2E7D8CDB1C1F85660031499D /* Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2E7D8CDA1C1F85660031499D /* Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2E7D8CE01C1F85660031499D /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7D8CDF1C1F85660031499D /* InterfaceController.swift */; };
+		2E7D8CE21C1F85660031499D /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7D8CE11C1F85660031499D /* ExtensionDelegate.swift */; };
+		2E7D8CE41C1F85660031499D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E7D8CE31C1F85660031499D /* Assets.xcassets */; };
+		2E7D8CF31C1F85F90031499D /* CPIdata.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2E7D8CF01C1F85F90031499D /* CPIdata.txt */; };
+		2E7D8CF41C1F85F90031499D /* ValueController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7D8CF11C1F85F90031499D /* ValueController.swift */; };
+		2E7D8CF51C1F85F90031499D /* YearController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7D8CF21C1F85F90031499D /* YearController.swift */; };
+		2E7D8CF61C1F8D850031499D /* Inflation.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 2E7D8CCE1C1F85660031499D /* Inflation.app */; };
 		2EB9BBCC19E74ADD00BE87BB /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EB9BBCB19E74ADD00BE87BB /* Launch Screen.xib */; };
 		2ECD19E919E0DC7C00C44A00 /* CPIdata.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2ECD19E819E0DC7C00C44A00 /* CPIdata.txt */; };
 		2EE6B10B19E0466F0025D4C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE6B10A19E0466F0025D4C0 /* AppDelegate.swift */; };
@@ -22,14 +27,23 @@
 		2EE6B11019E046700025D4C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EE6B10E19E046700025D4C0 /* Main.storyboard */; };
 		2EE6B11219E046700025D4C0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EE6B11119E046700025D4C0 /* Images.xcassets */; };
 		2EE6B12119E046700025D4C0 /* Inflation_CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE6B12019E046700025D4C0 /* Inflation_CalculatorTests.swift */; };
-		2EE9C1D11C1E40270009BCBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EE9C1D01C1E40270009BCBB /* Assets.xcassets */; };
-		2EE9C1D81C1E40270009BCBB /* Inflation Calculator Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2EE9C1D71C1E40270009BCBB /* Inflation Calculator Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		2EE9C1DF1C1E40270009BCBB /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE9C1DE1C1E40270009BCBB /* ExtensionDelegate.swift */; };
-		2EE9C1E11C1E40270009BCBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EE9C1E01C1E40270009BCBB /* Assets.xcassets */; };
-		2EE9C1E51C1E40270009BCBB /* Inflation Calculator Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 2EE9C1CB1C1E40270009BCBB /* Inflation Calculator Watch.app */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2E7D8CDC1C1F85660031499D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2EE6B0FD19E0466F0025D4C0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2E7D8CD91C1F85660031499D;
+			remoteInfo = "Watch Extension";
+		};
+		2E7D8CE61C1F85660031499D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2EE6B0FD19E0466F0025D4C0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2E7D8CCD1C1F85660031499D;
+			remoteInfo = Watch;
+		};
 		2EE6B11B19E046700025D4C0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2EE6B0FD19E0466F0025D4C0 /* Project object */;
@@ -37,23 +51,20 @@
 			remoteGlobalIDString = 2EE6B10419E0466F0025D4C0;
 			remoteInfo = "Inflation Calculator";
 		};
-		2EE9C1D91C1E40270009BCBB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2EE6B0FD19E0466F0025D4C0 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2EE9C1D61C1E40270009BCBB;
-			remoteInfo = "Inflation Calculator Watch Extension";
-		};
-		2EE9C1E31C1E40270009BCBB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2EE6B0FD19E0466F0025D4C0 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2EE9C1CA1C1E40270009BCBB;
-			remoteInfo = "Inflation Calculator Watch";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		2E7D8CEC1C1F85660031499D /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				2E7D8CDB1C1F85660031499D /* Watch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2EA682551A5CBD2400F39ECF /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -64,24 +75,13 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2EE9C1E91C1E40270009BCBB /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				2EE9C1D81C1E40270009BCBB /* Inflation Calculator Watch Extension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		2EE9C1ED1C1E40270009BCBB /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				2EE9C1E51C1E40270009BCBB /* Inflation Calculator Watch.app in Embed Watch Content */,
+				2E7D8CF61C1F8D850031499D /* Inflation.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -89,14 +89,21 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2E04C0711A5F5ED8007F2187 /* CPIdata.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CPIdata.txt; path = "../Inflation Calc WatchKit Extension/CPIdata.txt"; sourceTree = "<group>"; };
 		2E0C430319E3BC0B000F6ED6 /* AboutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutController.swift; sourceTree = "<group>"; };
 		2E2D42F219E615C100A5802C /* question mark button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "question mark button.png"; sourceTree = "<group>"; };
 		2E2D42F419E6222700A5802C /* about splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about splash.png"; sourceTree = "<group>"; };
-		2EA6823A1A5CBD2400F39ECF /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InterfaceController.swift; path = "../Inflation Calc WatchKit Extension/InterfaceController.swift"; sourceTree = "<group>"; };
-		2EA682481A5CBD2400F39ECF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
-		2EA6825A1A5CD7FC00F39ECF /* ValueController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ValueController.swift; path = "../Inflation Calc WatchKit Extension/ValueController.swift"; sourceTree = "<group>"; };
-		2EA6825C1A5CDAFE00F39ECF /* YearController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YearController.swift; path = "../Inflation Calc WatchKit Extension/YearController.swift"; sourceTree = "<group>"; };
+		2E7D8CCE1C1F85660031499D /* Inflation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Inflation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E7D8CD11C1F85660031499D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		2E7D8CD31C1F85660031499D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2E7D8CD51C1F85660031499D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E7D8CDA1C1F85660031499D /* Watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E7D8CDF1C1F85660031499D /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		2E7D8CE11C1F85660031499D /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		2E7D8CE31C1F85660031499D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2E7D8CE51C1F85660031499D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E7D8CF01C1F85F90031499D /* CPIdata.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CPIdata.txt; sourceTree = "<group>"; };
+		2E7D8CF11C1F85F90031499D /* ValueController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueController.swift; sourceTree = "<group>"; };
+		2E7D8CF21C1F85F90031499D /* YearController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearController.swift; sourceTree = "<group>"; };
 		2EB9BBCB19E74ADD00BE87BB /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Launch Screen.xib"; path = "../Launch Screen.xib"; sourceTree = "<group>"; };
 		2ECD19E819E0DC7C00C44A00 /* CPIdata.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CPIdata.txt; sourceTree = "<group>"; };
 		2EE6B10519E0466F0025D4C0 /* Inflation Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Inflation Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,16 +115,16 @@
 		2EE6B11A19E046700025D4C0 /* Inflation CalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Inflation CalculatorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EE6B11F19E046700025D4C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2EE6B12019E046700025D4C0 /* Inflation_CalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inflation_CalculatorTests.swift; sourceTree = "<group>"; };
-		2EE9C1CB1C1E40270009BCBB /* Inflation Calculator Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Inflation Calculator Watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2EE9C1D01C1E40270009BCBB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2EE9C1D21C1E40270009BCBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2EE9C1D71C1E40270009BCBB /* Inflation Calculator Watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Inflation Calculator Watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2EE9C1DE1C1E40270009BCBB /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
-		2EE9C1E01C1E40270009BCBB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2EE9C1E21C1E40270009BCBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2E7D8CD71C1F85660031499D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2EE6B10219E0466F0025D4C0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -132,22 +139,39 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2EE9C1D41C1E40270009BCBB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E7D8CCF1C1F85660031499D /* Watch */ = {
+			isa = PBXGroup;
+			children = (
+				2E7D8CD01C1F85660031499D /* Interface.storyboard */,
+				2E7D8CD31C1F85660031499D /* Assets.xcassets */,
+				2E7D8CD51C1F85660031499D /* Info.plist */,
+			);
+			path = Watch;
+			sourceTree = "<group>";
+		};
+		2E7D8CDE1C1F85660031499D /* Watch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2E7D8CDF1C1F85660031499D /* InterfaceController.swift */,
+				2E7D8CE11C1F85660031499D /* ExtensionDelegate.swift */,
+				2E7D8CF01C1F85F90031499D /* CPIdata.txt */,
+				2E7D8CF11C1F85F90031499D /* ValueController.swift */,
+				2E7D8CF21C1F85F90031499D /* YearController.swift */,
+				2E7D8CE31C1F85660031499D /* Assets.xcassets */,
+				2E7D8CE51C1F85660031499D /* Info.plist */,
+			);
+			path = "Watch Extension";
+			sourceTree = "<group>";
+		};
 		2EE6B0FC19E0466F0025D4C0 = {
 			isa = PBXGroup;
 			children = (
 				2EE6B10719E0466F0025D4C0 /* Inflation Calculator */,
-				2EE9C1CC1C1E40270009BCBB /* Inflation Calculator Watch */,
-				2EE9C1DB1C1E40270009BCBB /* Inflation Calculator Watch Extension */,
+				2E7D8CCF1C1F85660031499D /* Watch */,
+				2E7D8CDE1C1F85660031499D /* Watch Extension */,
 				2EE6B10619E0466F0025D4C0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -157,8 +181,8 @@
 			children = (
 				2EE6B10519E0466F0025D4C0 /* Inflation Calculator.app */,
 				2EE6B11A19E046700025D4C0 /* Inflation CalculatorTests.xctest */,
-				2EE9C1CB1C1E40270009BCBB /* Inflation Calculator Watch.app */,
-				2EE9C1D71C1E40270009BCBB /* Inflation Calculator Watch Extension.appex */,
+				2E7D8CCE1C1F85660031499D /* Inflation.app */,
+				2E7D8CDA1C1F85660031499D /* Watch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -206,33 +230,43 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		2EE9C1CC1C1E40270009BCBB /* Inflation Calculator Watch */ = {
-			isa = PBXGroup;
-			children = (
-				2EA682471A5CBD2400F39ECF /* Interface.storyboard */,
-				2EE9C1D01C1E40270009BCBB /* Assets.xcassets */,
-				2EE9C1D21C1E40270009BCBB /* Info.plist */,
-			);
-			path = "Inflation Calculator Watch";
-			sourceTree = "<group>";
-		};
-		2EE9C1DB1C1E40270009BCBB /* Inflation Calculator Watch Extension */ = {
-			isa = PBXGroup;
-			children = (
-				2EE9C1DE1C1E40270009BCBB /* ExtensionDelegate.swift */,
-				2EA6823A1A5CBD2400F39ECF /* InterfaceController.swift */,
-				2EA6825A1A5CD7FC00F39ECF /* ValueController.swift */,
-				2EA6825C1A5CDAFE00F39ECF /* YearController.swift */,
-				2EE9C1E01C1E40270009BCBB /* Assets.xcassets */,
-				2EE9C1E21C1E40270009BCBB /* Info.plist */,
-				2E04C0711A5F5ED8007F2187 /* CPIdata.txt */,
-			);
-			path = "Inflation Calculator Watch Extension";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		2E7D8CCD1C1F85660031499D /* Inflation */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E7D8CED1C1F85660031499D /* Build configuration list for PBXNativeTarget "Inflation" */;
+			buildPhases = (
+				2E7D8CCC1C1F85660031499D /* Resources */,
+				2E7D8CEC1C1F85660031499D /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2E7D8CDD1C1F85660031499D /* PBXTargetDependency */,
+			);
+			name = Inflation;
+			productName = Watch;
+			productReference = 2E7D8CCE1C1F85660031499D /* Inflation.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		2E7D8CD91C1F85660031499D /* Watch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E7D8CE91C1F85660031499D /* Build configuration list for PBXNativeTarget "Watch Extension" */;
+			buildPhases = (
+				2E7D8CD61C1F85660031499D /* Sources */,
+				2E7D8CD71C1F85660031499D /* Frameworks */,
+				2E7D8CD81C1F85660031499D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Watch Extension";
+			productName = "Watch Extension";
+			productReference = 2E7D8CDA1C1F85660031499D /* Watch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		2EE6B10419E0466F0025D4C0 /* Inflation Calculator */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2EE6B12419E046700025D4C0 /* Build configuration list for PBXNativeTarget "Inflation Calculator" */;
@@ -246,7 +280,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				2EE9C1E41C1E40270009BCBB /* PBXTargetDependency */,
+				2E7D8CE71C1F85660031499D /* PBXTargetDependency */,
 			);
 			name = "Inflation Calculator";
 			productName = "Inflation Calculator";
@@ -271,40 +305,6 @@
 			productReference = 2EE6B11A19E046700025D4C0 /* Inflation CalculatorTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		2EE9C1CA1C1E40270009BCBB /* Inflation Calculator Watch */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2EE9C1EA1C1E40270009BCBB /* Build configuration list for PBXNativeTarget "Inflation Calculator Watch" */;
-			buildPhases = (
-				2EE9C1C91C1E40270009BCBB /* Resources */,
-				2EE9C1E91C1E40270009BCBB /* Embed App Extensions */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2EE9C1DA1C1E40270009BCBB /* PBXTargetDependency */,
-			);
-			name = "Inflation Calculator Watch";
-			productName = "Inflation Calculator Watch";
-			productReference = 2EE9C1CB1C1E40270009BCBB /* Inflation Calculator Watch.app */;
-			productType = "com.apple.product-type.application.watchapp2";
-		};
-		2EE9C1D61C1E40270009BCBB /* Inflation Calculator Watch Extension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2EE9C1E61C1E40270009BCBB /* Build configuration list for PBXNativeTarget "Inflation Calculator Watch Extension" */;
-			buildPhases = (
-				2EE9C1D31C1E40270009BCBB /* Sources */,
-				2EE9C1D41C1E40270009BCBB /* Frameworks */,
-				2EE9C1D51C1E40270009BCBB /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Inflation Calculator Watch Extension";
-			productName = "Inflation Calculator Watch Extension";
-			productReference = 2EE9C1D71C1E40270009BCBB /* Inflation Calculator Watch Extension.appex */;
-			productType = "com.apple.product-type.watchkit2-extension";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -316,6 +316,14 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = Cal;
 				TargetAttributes = {
+					2E7D8CCD1C1F85660031499D = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = FZ89A5SZ7C;
+					};
+					2E7D8CD91C1F85660031499D = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = FZ89A5SZ7C;
+					};
 					2EE6B10419E0466F0025D4C0 = {
 						CreatedOnToolsVersion = 6.0.1;
 						DevelopmentTeam = FZ89A5SZ7C;
@@ -323,14 +331,6 @@
 					2EE6B11919E046700025D4C0 = {
 						CreatedOnToolsVersion = 6.0.1;
 						TestTargetID = 2EE6B10419E0466F0025D4C0;
-					};
-					2EE9C1CA1C1E40270009BCBB = {
-						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = FZ89A5SZ7C;
-					};
-					2EE9C1D61C1E40270009BCBB = {
-						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = FZ89A5SZ7C;
 					};
 				};
 			};
@@ -349,13 +349,31 @@
 			targets = (
 				2EE6B10419E0466F0025D4C0 /* Inflation Calculator */,
 				2EE6B11919E046700025D4C0 /* Inflation CalculatorTests */,
-				2EE9C1CA1C1E40270009BCBB /* Inflation Calculator Watch */,
-				2EE9C1D61C1E40270009BCBB /* Inflation Calculator Watch Extension */,
+				2E7D8CCD1C1F85660031499D /* Inflation */,
+				2E7D8CD91C1F85660031499D /* Watch Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2E7D8CCC1C1F85660031499D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E7D8CD41C1F85660031499D /* Assets.xcassets in Resources */,
+				2E7D8CD21C1F85660031499D /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E7D8CD81C1F85660031499D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E7D8CE41C1F85660031499D /* Assets.xcassets in Resources */,
+				2E7D8CF31C1F85F90031499D /* CPIdata.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2EE6B10319E0466F0025D4C0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -376,27 +394,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2EE9C1C91C1E40270009BCBB /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2E7D8CC91C1E433F0031499D /* Interface.storyboard in Resources */,
-				2EE9C1D11C1E40270009BCBB /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2EE9C1D51C1E40270009BCBB /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2EE9C1E11C1E40270009BCBB /* Assets.xcassets in Resources */,
-				2E7D8CCA1C1E43440031499D /* CPIdata.txt in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2E7D8CD61C1F85660031499D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E7D8CF51C1F85F90031499D /* YearController.swift in Sources */,
+				2E7D8CE21C1F85660031499D /* ExtensionDelegate.swift in Sources */,
+				2E7D8CE01C1F85660031499D /* InterfaceController.swift in Sources */,
+				2E7D8CF41C1F85F90031499D /* ValueController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2EE6B10119E0466F0025D4C0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -415,45 +426,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2EE9C1D31C1E40270009BCBB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2E7D8CC81C1E43370031499D /* YearController.swift in Sources */,
-				2EE9C1DF1C1E40270009BCBB /* ExtensionDelegate.swift in Sources */,
-				2E7D8CC61C1E43310031499D /* InterfaceController.swift in Sources */,
-				2E7D8CC71C1E43340031499D /* ValueController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		2E7D8CDD1C1F85660031499D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2E7D8CD91C1F85660031499D /* Watch Extension */;
+			targetProxy = 2E7D8CDC1C1F85660031499D /* PBXContainerItemProxy */;
+		};
+		2E7D8CE71C1F85660031499D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2E7D8CCD1C1F85660031499D /* Inflation */;
+			targetProxy = 2E7D8CE61C1F85660031499D /* PBXContainerItemProxy */;
+		};
 		2EE6B11C19E046700025D4C0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2EE6B10419E0466F0025D4C0 /* Inflation Calculator */;
 			targetProxy = 2EE6B11B19E046700025D4C0 /* PBXContainerItemProxy */;
 		};
-		2EE9C1DA1C1E40270009BCBB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2EE9C1D61C1E40270009BCBB /* Inflation Calculator Watch Extension */;
-			targetProxy = 2EE9C1D91C1E40270009BCBB /* PBXContainerItemProxy */;
-		};
-		2EE9C1E41C1E40270009BCBB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2EE9C1CA1C1E40270009BCBB /* Inflation Calculator Watch */;
-			targetProxy = 2EE9C1E31C1E40270009BCBB /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		2EA682471A5CBD2400F39ECF /* Interface.storyboard */ = {
+		2E7D8CD01C1F85660031499D /* Interface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2EA682481A5CBD2400F39ECF /* Base */,
+				2E7D8CD11C1F85660031499D /* Base */,
 			);
 			name = Interface.storyboard;
-			path = "../Inflation Calc WatchKit App";
 			sourceTree = "<group>";
 		};
 		2EE6B10E19E046700025D4C0 /* Main.storyboard */ = {
@@ -467,6 +466,82 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		2E7D8CEA1C1F85660031499D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cal.Inflation-Calculator.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Debug;
+		};
+		2E7D8CEB1C1F85660031499D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cal.Inflation-Calculator.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Release;
+		};
+		2E7D8CEE1C1F85660031499D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IBSC_MODULE = Watch_Extension;
+				INFOPLIST_FILE = Watch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cal.Inflation-Calculator.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		2E7D8CEF1C1F85660031499D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IBSC_MODULE = Watch_Extension;
+				INFOPLIST_FILE = Watch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cal.Inflation-Calculator.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
 		2EE6B12219E046700025D4C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -617,87 +692,27 @@
 			};
 			name = Release;
 		};
-		2EE9C1E71C1E40270009BCBB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_TESTABILITY = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Inflation Calculator Watch Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.cal.Inflation-Calculator.watchkitapp.watchkitextension";
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.1;
-			};
-			name = Debug;
-		};
-		2EE9C1E81C1E40270009BCBB /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Inflation Calculator Watch Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.cal.Inflation-Calculator.watchkitapp.watchkitextension";
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.1;
-			};
-			name = Release;
-		};
-		2EE9C1EB1C1E40270009BCBB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				IBSC_MODULE = Inflation_Calculator_Watch_Extension;
-				INFOPLIST_FILE = "Inflation Calculator Watch/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.cal.Inflation-Calculator.watchkitapp";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.1;
-			};
-			name = Debug;
-		};
-		2EE9C1EC1C1E40270009BCBB /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				IBSC_MODULE = Inflation_Calculator_Watch_Extension;
-				INFOPLIST_FILE = "Inflation Calculator Watch/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.cal.Inflation-Calculator.watchkitapp";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.1;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2E7D8CE91C1F85660031499D /* Build configuration list for PBXNativeTarget "Watch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E7D8CEA1C1F85660031499D /* Debug */,
+				2E7D8CEB1C1F85660031499D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2E7D8CED1C1F85660031499D /* Build configuration list for PBXNativeTarget "Inflation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E7D8CEE1C1F85660031499D /* Debug */,
+				2E7D8CEF1C1F85660031499D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2EE6B10019E0466F0025D4C0 /* Build configuration list for PBXProject "Inflation Calculator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -721,24 +736,6 @@
 			buildConfigurations = (
 				2EE6B12819E046700025D4C0 /* Debug */,
 				2EE6B12919E046700025D4C0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2EE9C1E61C1E40270009BCBB /* Build configuration list for PBXNativeTarget "Inflation Calculator Watch Extension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2EE9C1E71C1E40270009BCBB /* Debug */,
-				2EE9C1E81C1E40270009BCBB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2EE9C1EA1C1E40270009BCBB /* Build configuration list for PBXNativeTarget "Inflation Calculator Watch" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2EE9C1EB1C1E40270009BCBB /* Debug */,
-				2EE9C1EC1C1E40270009BCBB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
