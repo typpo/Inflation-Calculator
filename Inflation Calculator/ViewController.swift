@@ -44,7 +44,7 @@ class ViewController: UIViewController, UIPickerViewDelegate {
         
         let aspectRatio = Double(self.view.bounds.size.height / self.view.bounds.size.width)
         
-        if(aspectRatio < 1.7){
+        if(aspectRatio < 1.7 && self.view.bounds.size.height < 700){
             leftYearLabel.hidden = true
             rightYearLabel.hidden = true
             leftYearButton.hidden = true
@@ -333,4 +333,3 @@ class ViewController: UIViewController, UIPickerViewDelegate {
     }
     
 }
-

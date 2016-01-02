@@ -2,8 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9531"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -12,38 +11,52 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qf0-ye-73L">
-                    <rect key="frame" x="0.0" y="20" width="320" height="60"/>
-                    <color key="backgroundColor" red="0.054901960780000002" green="0.41176470590000003" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="Qf0-ye-73L" secondAttribute="height" multiplier="16:3" id="Vc1-Ve-3Ag"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qxv-7f-qWU">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SU4-Rn-gpS">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                     <color key="backgroundColor" red="0.15686274510000001" green="0.60392156860000001" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="Qxv-7f-qWU" secondAttribute="height" multiplier="320:69" id="R8Q-xW-QBK"/>
+                        <constraint firstAttribute="height" constant="20" id="rid-Zy-vqu"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="rid-Zy-vqu"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=regular">
+                        <mask key="constraints">
+                            <include reference="rid-Zy-vqu"/>
+                        </mask>
+                    </variation>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="Qf0-ye-73L" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="0vM-U0-bHo"/>
-                <constraint firstAttribute="trailing" secondItem="Qf0-ye-73L" secondAttribute="trailing" id="3j8-wV-MYz"/>
-                <constraint firstItem="Qxv-7f-qWU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Wb2-dT-lHJ"/>
-                <constraint firstItem="Qf0-ye-73L" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="rjf-h4-630"/>
-                <constraint firstItem="Qxv-7f-qWU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="vf3-jK-Eap"/>
-                <constraint firstAttribute="trailing" secondItem="Qxv-7f-qWU" secondAttribute="trailing" id="xPQ-CT-k2p"/>
+                <constraint firstAttribute="trailing" secondItem="SU4-Rn-gpS" secondAttribute="trailing" id="B3K-CV-gDr"/>
+                <constraint firstItem="SU4-Rn-gpS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="djA-5o-Tgz"/>
+                <constraint firstItem="SU4-Rn-gpS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="k42-9Z-owN"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="SU4-Rn-gpS"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="B3K-CV-gDr"/>
+                    <exclude reference="djA-5o-Tgz"/>
+                    <exclude reference="k42-9Z-owN"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=regular">
+                <mask key="subviews">
+                    <include reference="SU4-Rn-gpS"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="B3K-CV-gDr"/>
+                    <include reference="djA-5o-Tgz"/>
+                    <include reference="k42-9Z-owN"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="605" y="357"/>
         </view>
     </objects>
