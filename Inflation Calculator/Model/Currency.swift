@@ -18,12 +18,14 @@ struct Currency {
     let symbol: String
     
     let data: [Year : CPI]
+    let years: [Year]
     
     init?(named name: String, id: String, symbol: String) {
         self.name = name
         self.id = id
         self.symbol = symbol
         
+        //load data dictionary from CSV
         guard let dataURL = Bundle.main.url(forResource: "Currencies/\(id)", withExtension: "csv"),
             let dataText = try? String(contentsOf: dataURL) else {
                 return nil
@@ -44,17 +46,18 @@ struct Currency {
         }
         
         self.data = data
+        self.years = Array(data.keys).sorted().reversed()
     }
     
     
     //MARK: - Calculations
     
     var earliestYear: Year {
-        return Array(data.keys).min()! //safe because data will always have atleast one item
+        return years.first!
     }
     
     var mostRecentYear: Year {
-        return Array(data.keys).max()!
+        return years.last!
     }
     
     func cpi(for year: Year) -> CPI? {
@@ -66,4 +69,17 @@ struct Currency {
         return (cpi2 / cpi1) * value
     }
 
+}
+
+extension Double {
+    
+    func format(using currency: Currency, decimalCount: Int) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        
+        let usdFormat = formatter.string(from: NSNumber(value: self))
+        let currencyFormatted = usdFormat?.replacingOccurrences(of: "$ ", with: currency.symbol)
+        return currencyFormatted ?? "\(currency.symbol)--"
+    }
+    
 }

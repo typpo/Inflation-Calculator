@@ -110,7 +110,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yTL-sO-Eoo" customClass="SelectCornerRadiusView" customModule="Inflation_Calculator" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="166.5" height="83.5"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$25" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UH0-em-RRk">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UH0-em-RRk">
                                                         <rect key="frame" x="5" y="5" width="156.5" height="73.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <color key="textColor" red="0.99992352724075317" green="1" blue="0.99988299608230591" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -138,7 +138,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GX4-kN-3SB" customClass="SelectCornerRadiusView" customModule="Inflation_Calculator" customModuleProvider="target">
                                                 <rect key="frame" x="176.5" y="0.0" width="166.5" height="83.5"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$72.52" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EDq-CY-J4i">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EDq-CY-J4i">
                                                         <rect key="frame" x="5" y="5" width="156.5" height="73.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <color key="textColor" red="0.99992352724075317" green="1" blue="0.99988299608230591" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -477,13 +477,46 @@
                     </view>
                     <navigationItem key="navigationItem" id="Mh0-hO-mWd"/>
                     <connections>
+                        <outlet property="currencyLabel" destination="gR2-07-Lfu" id="3pd-5t-o0Q"/>
+                        <outlet property="currencySymbol" destination="xru-tf-QAh" id="5cb-Eu-A5d"/>
+                        <outlet property="currencyView" destination="TDW-fi-kIt" id="ic1-OU-ofR"/>
+                        <outlet property="leftDollarsLabel" destination="UH0-em-RRk" id="3gn-SU-8zT"/>
                         <outlet property="leftDollarsView" destination="yTL-sO-Eoo" id="czm-Jl-fc2"/>
-                        <outlet property="leftYearsLabel" destination="1bD-iI-FO8" id="zfX-a4-paA"/>
-                        <outlet property="leftYearsView" destination="4gL-UW-hv2" id="62M-Mc-3EK"/>
+                        <outlet property="leftYearLabel" destination="1bD-iI-FO8" id="4c6-Bk-rD8"/>
+                        <outlet property="leftYearView" destination="4gL-UW-hv2" id="N9c-UB-akX"/>
                         <outlet property="rightDollarsLabel" destination="EDq-CY-J4i" id="JpS-yd-1cW"/>
                         <outlet property="rightDollarsView" destination="GX4-kN-3SB" id="o2J-ki-phe"/>
-                        <outlet property="rightYearsLabel" destination="dO3-gv-Cks" id="3kT-iC-51b"/>
-                        <outlet property="rightYearsView" destination="Wa2-jP-Y3j" id="k5J-A9-Tza"/>
+                        <outlet property="rightYearLabel" destination="dO3-gv-Cks" id="WQc-eZ-yXU"/>
+                        <outlet property="rightYearView" destination="Wa2-jP-Y3j" id="8Po-AC-YZu"/>
+                        <outletCollection property="interactiveViews" destination="yTL-sO-Eoo" collectionClass="NSMutableArray" id="roW-0n-2R5"/>
+                        <outletCollection property="interactiveViews" destination="GX4-kN-3SB" collectionClass="NSMutableArray" id="CiW-5G-hnh"/>
+                        <outletCollection property="interactiveViews" destination="4gL-UW-hv2" collectionClass="NSMutableArray" id="yHa-Fn-fQT"/>
+                        <outletCollection property="interactiveViews" destination="Wa2-jP-Y3j" collectionClass="NSMutableArray" id="Xd9-8b-gh3"/>
+                        <outletCollection property="interactiveViews" destination="TdD-4J-teI" collectionClass="NSMutableArray" id="TJd-m1-rQp"/>
+                        <outletCollection property="interactiveViews" destination="GTz-Nb-sHG" collectionClass="NSMutableArray" id="f6n-ro-0zY"/>
+                        <outletCollection property="interactiveViews" destination="0vu-Bx-XJP" collectionClass="NSMutableArray" id="w2b-ZO-qjp"/>
+                        <outletCollection property="interactiveViews" destination="hsR-Lg-MBV" collectionClass="NSMutableArray" id="IbI-Fy-inm"/>
+                        <outletCollection property="interactiveViews" destination="U9B-ia-Zmp" collectionClass="NSMutableArray" id="orS-EJ-aZ4"/>
+                        <outletCollection property="interactiveViews" destination="p8O-8z-GOx" collectionClass="NSMutableArray" id="4LH-nt-QlT"/>
+                        <outletCollection property="interactiveViews" destination="JsW-Zo-1vA" collectionClass="NSMutableArray" id="7Uj-UY-Skk"/>
+                        <outletCollection property="interactiveViews" destination="rQY-Et-On1" collectionClass="NSMutableArray" id="X2r-pc-Pdq"/>
+                        <outletCollection property="interactiveViews" destination="ZZF-Ga-dSd" collectionClass="NSMutableArray" id="UIN-h6-QWg"/>
+                        <outletCollection property="interactiveViews" destination="mla-dZ-3OU" collectionClass="NSMutableArray" id="iIo-5e-KOB"/>
+                        <outletCollection property="interactiveViews" destination="fKU-9g-kWW" collectionClass="NSMutableArray" id="lW8-rb-TcH"/>
+                        <outletCollection property="interactiveViews" destination="j98-tt-yEV" collectionClass="NSMutableArray" id="bgH-A9-uTI"/>
+                        <outletCollection property="numberKeys" destination="TdD-4J-teI" collectionClass="NSMutableArray" id="yio-1t-aFL"/>
+                        <outletCollection property="numberKeys" destination="GTz-Nb-sHG" collectionClass="NSMutableArray" id="NhK-e4-741"/>
+                        <outletCollection property="numberKeys" destination="0vu-Bx-XJP" collectionClass="NSMutableArray" id="JLz-YO-5ZX"/>
+                        <outletCollection property="numberKeys" destination="hsR-Lg-MBV" collectionClass="NSMutableArray" id="1yM-x5-wm9"/>
+                        <outletCollection property="numberKeys" destination="U9B-ia-Zmp" collectionClass="NSMutableArray" id="foi-al-Qed"/>
+                        <outletCollection property="numberKeys" destination="p8O-8z-GOx" collectionClass="NSMutableArray" id="GWj-8G-HFT"/>
+                        <outletCollection property="numberKeys" destination="JsW-Zo-1vA" collectionClass="NSMutableArray" id="nTF-d4-jmA"/>
+                        <outletCollection property="numberKeys" destination="rQY-Et-On1" collectionClass="NSMutableArray" id="35r-Mu-7gN"/>
+                        <outletCollection property="numberKeys" destination="ZZF-Ga-dSd" collectionClass="NSMutableArray" id="zYs-2A-uaZ"/>
+                        <outletCollection property="numberKeys" destination="mla-dZ-3OU" collectionClass="NSMutableArray" id="SAN-KB-RAQ"/>
+                        <outletCollection property="numberKeys" destination="fKU-9g-kWW" collectionClass="NSMutableArray" id="qEf-Jb-jnt"/>
+                        <outletCollection property="numberKeys" destination="j98-tt-yEV" collectionClass="NSMutableArray" id="vzg-PY-adq"/>
+                        <outletCollection property="interactiveViews" destination="TDW-fi-kIt" collectionClass="NSMutableArray" id="eV4-v6-Err"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ix9-zA-BBG" userLabel="First Responder" sceneMemberID="firstResponder"/>
