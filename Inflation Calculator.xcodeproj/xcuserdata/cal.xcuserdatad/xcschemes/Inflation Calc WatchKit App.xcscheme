@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0720"
+   LastUpgradeVersion = "0820"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2EA6823F1A5CBD2400F39ECF"
+               BlueprintIdentifier = "2E7D8CCD1C1F85660031499D"
                BuildableName = "Inflation.app"
                BlueprintName = "Inflation"
                ReferencedContainer = "container:Inflation Calculator.xcodeproj">
@@ -60,7 +60,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2EA6823F1A5CBD2400F39ECF"
+            BlueprintIdentifier = "2E7D8CCD1C1F85660031499D"
             BuildableName = "Inflation.app"
             BlueprintName = "Inflation"
             ReferencedContainer = "container:Inflation Calculator.xcodeproj">
@@ -85,7 +85,7 @@
          RemotePath = "/Inflation Calc">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2EA6823F1A5CBD2400F39ECF"
+            BlueprintIdentifier = "2E7D8CCD1C1F85660031499D"
             BuildableName = "Inflation.app"
             BlueprintName = "Inflation"
             ReferencedContainer = "container:Inflation Calculator.xcodeproj">
@@ -94,7 +94,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2EA6823F1A5CBD2400F39ECF"
+            BlueprintIdentifier = "2E7D8CCD1C1F85660031499D"
             BuildableName = "Inflation.app"
             BlueprintName = "Inflation"
             ReferencedContainer = "container:Inflation Calculator.xcodeproj">
@@ -115,7 +115,7 @@
          RemotePath = "/Inflation Calc">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2EA6823F1A5CBD2400F39ECF"
+            BlueprintIdentifier = "2E7D8CCD1C1F85660031499D"
             BuildableName = "Inflation.app"
             BlueprintName = "Inflation"
             ReferencedContainer = "container:Inflation Calculator.xcodeproj">
@@ -124,7 +124,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2EA6823F1A5CBD2400F39ECF"
+            BlueprintIdentifier = "2E7D8CCD1C1F85660031499D"
             BuildableName = "Inflation.app"
             BlueprintName = "Inflation"
             ReferencedContainer = "container:Inflation Calculator.xcodeproj">

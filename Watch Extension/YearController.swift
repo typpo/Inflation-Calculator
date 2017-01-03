@@ -41,7 +41,7 @@ class YearController : WKInterfaceController {
         for year in 1800...2016 {
             let item = WKPickerItem()
             item.title = "\(year)"
-            pickerItems.insert(item, atIndex: 0)
+            pickerItems.insert(item, at: 0)
         }
         yearPicker.setItems(pickerItems)
         yearPicker.setSelectedItemIndex(2016 - Int(year)!)
@@ -53,23 +53,23 @@ class YearController : WKInterfaceController {
         Inflation.Data.updateValuesForCPI()
     }
     
-    @IBAction func centuryUpdated(float: Float) {
+    @IBAction func centuryUpdated(_ float: Float) {
         let value = Int(float)
-        year = "\(value)" + year.substringWithRange(Range<String.Index>(start: year.startIndex.advancedBy(2), end: year.endIndex))
+        year = "\(value)" + year.substring(with: (year.characters.index(year.startIndex, offsetBy: 2) ..< year.endIndex))
         centuryLabel.setText("\(value)")
         updateLabel()
     }
     
-    @IBAction func decadeUpdated(float: Float) {
+    @IBAction func decadeUpdated(_ float: Float) {
         let value = Int(float)
-        year = year.substringWithRange(Range<String.Index>(start: year.startIndex, end: year.endIndex.advancedBy(-2))) + "\(value)" + year.substringWithRange(Range<String.Index>(start: year.startIndex.advancedBy(3), end: year.endIndex))
+        year = year.substring(with: (year.startIndex ..< year.characters.index(year.endIndex, offsetBy: -2))) + "\(value)" + year.substring(with: (year.characters.index(year.startIndex, offsetBy: 3) ..< year.endIndex))
         decadeLabel.setText("\(value)")
         updateLabel()
     }
     
-    @IBAction func yearUpdated(float: Float) {
+    @IBAction func yearUpdated(_ float: Float) {
         let value = Int(float)
-        year = year.substringWithRange(Range<String.Index>(start: year.startIndex, end: year.endIndex.advancedBy(-1))) + "\(value)"
+        year = year.substring(with: (year.startIndex ..< year.characters.index(year.endIndex, offsetBy: -1))) + "\(value)"
         yearLabel.setText("\(value)")
         updateLabel()
     }
@@ -89,14 +89,14 @@ class YearController : WKInterfaceController {
         updateSavedYear()
     }
     
-    @IBAction func yearPicked(value: Int) {
+    @IBAction func yearPicked(_ value: Int) {
         let selectedYear = 2016 - value
         year = "\(selectedYear)"
         updateSlidersForYear(selectedYear)
         updateSavedYear()
     }
     
-    func updateSlidersForYear(year: Int) {
+    func updateSlidersForYear(_ year: Int) {
         let yearValue = year % 10
         let decadeValue = (year - yearValue) / 10 % 10
         let centuryValue = (year - yearValue - decadeValue) / 100

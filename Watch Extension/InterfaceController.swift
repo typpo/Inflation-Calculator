@@ -17,8 +17,8 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet weak var year1Button: WKInterfaceButton!
     @IBOutlet weak var year2Button: WKInterfaceButton!
 
-    override func awakeWithContext(context: AnyObject?) {
-        super.awakeWithContext(context)
+    override func awake(withContext context: Any?) {
+        super.awake(withContext: context)
         
     }
     
@@ -66,30 +66,30 @@ class Inflation {
             }
             updateLabels(anchor1: anchor1)
             
-            WKInterfaceDevice.currentDevice().playHaptic(WKHapticType.Click)
+            WKInterfaceDevice.current().play(WKHapticType.click)
         }
         
         static func checkDataLoaded() {
             if CPI.count == 0 {
-                let bundle = NSBundle.mainBundle()
-                let path = bundle.pathForResource("CPIdata", ofType: "txt")
-                let content = try! String(contentsOfFile: path!, encoding: NSUTF8StringEncoding)
+                let bundle = Bundle.main
+                let path = bundle.path(forResource: "CPIdata", ofType: "txt")
+                let content = try! String(contentsOfFile: path!, encoding: String.Encoding.utf8)
                 
-                let strings = content.componentsSeparatedByString("\n")
+                let strings = content.components(separatedBy: "\n")
                 for s in strings {
                     CPI.append(NSString(string: s).doubleValue)
                 }
             }
         }
         
-        static func updateLabels(anchor1 anchor1 : Bool) {
+        static func updateLabels(anchor1 : Bool) {
             mainInterface?.year1Button.setTitle("\(Inflation.Data.year1)")
             mainInterface?.year2Button.setTitle("\(Inflation.Data.year2)")
             mainInterface?.dollars1Button.setTitle("\(formatAmount(Inflation.Data.dollars1))")
             mainInterface?.dollars2Button.setTitle("\(formatAmount(Inflation.Data.dollars2))")
         }
         
-        static func giveInterface(interface : InterfaceController){
+        static func giveInterface(_ interface : InterfaceController){
             mainInterface = interface
         }
     }
