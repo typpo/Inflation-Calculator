@@ -79,7 +79,21 @@ extension Double {
         
         let usdFormat = formatter.string(from: NSNumber(value: self))
         let currencyFormatted = usdFormat?.replacingOccurrences(of: "$ ", with: currency.symbol)
-        return currencyFormatted ?? "\(currency.symbol)--"
+        
+        guard let stringWithDecimal = currencyFormatted else { return "\(currency.symbol)--" }
+        let numberComponents = stringWithDecimal.components(separatedBy: ".")
+        
+        if decimalCount == 0 {
+            return numberComponents[0]
+        }
+        
+        if decimalCount == 1 {
+            let firstDecimal = numberComponents[1].characters.first ?? Character("0")
+            return "\(numberComponents[0]).\(firstDecimal)"
+        }
+        
+        //currency decimals max out at 2 digits
+        return stringWithDecimal
     }
     
 }

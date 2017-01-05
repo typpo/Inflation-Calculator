@@ -20,6 +20,7 @@ class InflationViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBOutlet weak var rightYearView: UIView!
     
     @IBOutlet weak var currencyView: UIStackView!
+    @IBOutlet weak var currencyTouchView: UIView!
     @IBOutlet weak var currencySymbol: UILabel!
     @IBOutlet weak var currencyLabel: UILabel!
     
@@ -119,6 +120,7 @@ class InflationViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         touch(at: touches, finishes: true)
     }
     
+    //this method is a hot mess but it'll do
     func touch(at touches: Set<UITouch>, finishes: Bool = false, performsAction: Bool = false) {
         guard let touch = touches.first?.location(in: self.view) else { return }
         
@@ -131,27 +133,35 @@ class InflationViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             let viewContainsTouch = view.bounds.contains(touchInView)
             view.transform = existingTransform
             
+            var viewToAnimate = view
+            
+            if view == self.currencyTouchView {
+                viewToAnimate = self.currencyView
+            }
+            
             //view animation
             if viewContainsTouch && !finishes {
                 
                 let transform: CGAffineTransform
-                
-                if self.numberKeys.contains(view) {
+    
+                if self.numberKeys.contains(viewToAnimate) {
                     transform = CGAffineTransform(scaleX: 0.875, y: 0.875)
-                } else if view == currencyView {
-                    transform = CGAffineTransform(translationX: 10.0, y: 0.0)
+                } else if viewToAnimate == self.currencyView {
+                    transform = CGAffineTransform(translationX: 20.0, y: 0.0)
                 } else {
                     transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
                 }
                 
                 UIView.animate(withDuration: 0.15, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: [.beginFromCurrentState, .allowUserInteraction], animations: {
-                    view.transform = transform
+                    viewToAnimate.transform = transform
                 }, completion: nil)
             }
             
             else {
-                UIView.animate(withDuration: 0.2, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: [.beginFromCurrentState, .allowUserInteraction], animations: {
-                    view.transform = .identity
+                let delay = (viewToAnimate == self.currencyView) ? 0.3 : 0.0
+                
+                UIView.animate(withDuration: 0.2, delay: delay, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: [.beginFromCurrentState, .allowUserInteraction], animations: {
+                    viewToAnimate.transform = .identity
                 }, completion: nil)
             }
             
@@ -172,6 +182,9 @@ class InflationViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     //MARK: - Manage Views and Labels
     
     var currentDollarValue: Double = 0.0
+    var decimalModeEnabled = false
+    var decimalCount = 0
+    
     var leftYear: Year = 1980
     var rightYear: Year = 2017
     
@@ -250,24 +263,47 @@ class InflationViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         guard let labelText = view.subviews.flatMap({ $0 as? UILabel }).first?.text else { return }
         
         if let labelNumber = Double(labelText) {
-            currentDollarValue *= 10
-            currentDollarValue += labelNumber
+            
+            if self.currentDollarValue >= 99_999_999_999_999 {
+                //gotta max-out eventually
+                return
+            }
+            
+            if !decimalModeEnabled {
+                currentDollarValue *= 10
+                currentDollarValue += labelNumber
+            }
+            
+            else { //if decimalModeEnabled
+                if self.decimalCount == 2 {
+                    clearCurrentInput()
+                    numberButtonPressed(view) //process the touch again with decimalMode disabled
+                } else {
+                    self.decimalCount += 1
+                    self.currentDollarValue += Double(labelNumber) / pow(10, Double(self.decimalCount))
+                }
+            }
+            
             updateLabels()
         }
         
+        //clear button
         else if labelText == "c" {
-            clearPressed()
-        } else if labelText == "." {
-            decimalPressed()
+            clearCurrentInput()
+        }
+        
+        //decimal butotn
+        else if labelText == "." {
+            self.decimalModeEnabled = true
+            updateLabels()
         }
     }
     
-    func clearPressed() {
-        
-    }
-    
-    func decimalPressed() {
-        
+    func clearCurrentInput() {
+        self.currentDollarValue = 0
+        self.decimalCount = 0
+        self.decimalModeEnabled = false
+        updateLabels()
     }
     
     func updateLabels() {
@@ -275,13 +311,19 @@ class InflationViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         self.otherYearLabel.text = "\(otherYear)"
         
         guard let currency = self.currency else { return }
-        currentDollarsLabel.text = currentDollarValue.format(using: currency, decimalCount: 0)
+        
+        let decimalDisplayCount = (self.decimalModeEnabled) ? 2 : 0
+        currentDollarsLabel.text = currentDollarValue.format(using: currency, decimalCount: decimalDisplayCount)
+        
         otherDollarsLabel.text = otherDollarValue.format(using: currency, decimalCount: 2)
     }
     
     func auxillaryButtonPressed(_ view: UIView) {
         if view == otherDollarsView || view == otherYearView {
             self.currentDollarValue = self.otherDollarValue
+            self.decimalCount = 2
+            self.decimalModeEnabled = true
+            
             swapViews()
             updateViewColors()
             updateLabels()
@@ -337,5 +379,4 @@ class InflationViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         self.updateLabels()
     }
     
-
 }
