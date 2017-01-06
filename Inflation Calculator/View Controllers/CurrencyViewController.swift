@@ -12,7 +12,7 @@ class CurrencyViewController : UIViewController, UITableViewDataSource, UITableV
     
     static let identifier = "currencySelector"
     
-    static func present(over presenter: UIViewController, completion: ((Currency?) -> ())?) {
+    static func present(over presenter: UIViewController, completion: ((Int?) -> ())?) {
         let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: CurrencyViewController.identifier) as! CurrencyViewController
         controller.completion = completion
         
@@ -20,7 +20,11 @@ class CurrencyViewController : UIViewController, UITableViewDataSource, UITableV
     }
     
     
-    var completion: ((Currency?) -> ())? = nil
+    var completion: ((Int?) -> ())? = nil
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
+    }
     
     
     //MARK: - Table View Data Source
@@ -52,8 +56,7 @@ class CurrencyViewController : UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let currency = Currency.all[indexPath.item]
-        self.completion?(currency)
+        self.completion?(indexPath.item)
         self.dismiss(animated: true, completion: nil)
     }
     

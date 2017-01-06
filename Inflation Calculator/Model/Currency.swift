@@ -13,15 +13,35 @@ typealias CPI = Double
 
 struct Currency {
     
-    //defined currencies
+    
+    //MARK: - Defined Currencies
+    
     static let usDollar = Currency(named: "US Dollar", symbol: "$", flag: "🇺🇸")
     static let euro = Currency(named: "Euro", symbol: "€", flag: "🇪🇺")
     static let britishPound = Currency(named: "British Pound", symbol:  "£", flag: "🇬🇧")
     static let japaneseYen = Currency(named: "Japanese Yen", symbol: "¥", flag: "🇯🇵")
+    static let canadianDollar = Currency(named: "Canadian Dollar", symbol: "$", flag: "🇨🇦")
+    static let swissFranc = Currency(named: "Swiss Franc", symbol: "Fr", flag: "🇨🇭")
+    static let chineseYuan = Currency(named: "Chinese Yuan", symbol: "¥", flag: "🇨🇳")
+    static let swedishKrona = Currency(named: "Swedish Krona", symbol: "kr", flag: "🇸🇪")
+    static let mexicanPeso = Currency(named: "Mexican Peso", symbol: "$", flag: "🇲🇽")
+    static let norwegianKrone = Currency(named: "Norwegian Krone", symbol: "kr", flag: "🇳🇴")
+    static let southKoreanWon = Currency(named: "South Korean Won", symbol: "₩", flag: "🇰🇷")
+    static let turkishLira = Currency(named: "Turkish Lira", symbol: "₺", flag: "🇹🇷")
+    static let brazilianReal = Currency(named: "Brazilian Real", symbol: "R$", flag: "🇧🇷")
+    static let southAfricanRand = Currency(named: "South African Rand", symbol: "R", flag: "🇿🇦")
+    static let indianRupee = Currency(named: "Indian Rupee", symbol: "₹", flag: "🇮🇳")
+    static let russianRuble = Currency(named: "Russian Ruble", symbol: "₽", flag: "🇷🇺")
+    static let israeliSheqel = Currency(named: "Israeli Sheqel", symbol: "₪", flag: "🇮🇱")
+    static let indonesianRupiah = Currency(named: "Indonesian Rupiah", symbol: "Rp", flag: "🇮🇩")
     
-    static let all = [usDollar, euro, britishPound, japaneseYen].flatMap { $0 }
+    static let all = [usDollar, euro, britishPound, japaneseYen, canadianDollar,
+                      swissFranc, chineseYuan, swedishKrona, mexicanPeso, norwegianKrone,
+                      southKoreanWon, turkishLira, brazilianReal, southAfricanRand,
+                      indianRupee, russianRuble, israeliSheqel, indonesianRupiah]
     
-    //properties
+    
+    //MARK: - Properties
     
     let name: String
     let flag: String
@@ -30,16 +50,14 @@ struct Currency {
     let data: [Year : CPI]
     let years: [Year]
     
-    init?(named name: String, symbol: String, flag: String) {
+    private init(named name: String, symbol: String, flag: String) {
         self.name = name
         self.symbol = symbol
         self.flag = flag
         
         //load data dictionary from CSV
-        guard let dataURL = Bundle.main.url(forResource: "Currencies/\(name)", withExtension: "csv"),
-            let dataText = try? String(contentsOf: dataURL) else {
-                return nil
-        }
+        let dataURL = Bundle.main.url(forResource: "Currencies/\(name)", withExtension: "csv")!
+        let dataText = try! String(contentsOf: dataURL)
         
         var data = [Year : CPI]()
         
@@ -51,10 +69,6 @@ struct Currency {
             }
         }
         
-        if data.count == 0 {
-            return nil
-        }
-        
         self.data = data
         self.years = Array(data.keys).sorted().reversed()
     }
@@ -63,11 +77,11 @@ struct Currency {
     //MARK: - Calculations
     
     var earliestYear: Year {
-        return years.first!
+        return years.last!
     }
     
     var mostRecentYear: Year {
-        return years.last!
+        return years.first!
     }
     
     func cpi(for year: Year) -> CPI? {
@@ -87,8 +101,12 @@ extension Double {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         
+        let prefix = (currency.symbol.characters.count >= 2)
+                      ? "\(currency.symbol) "
+                      : currency.symbol
+        
         let usdFormat = formatter.string(from: NSNumber(value: self))
-        let currencyFormatted = usdFormat?.replacingOccurrences(of: "$", with: currency.symbol)
+        let currencyFormatted = usdFormat?.replacingOccurrences(of: "$", with: prefix)
         
         guard let stringWithDecimal = currencyFormatted else { return "\(currency.symbol)--" }
         let numberComponents = stringWithDecimal.components(separatedBy: ".")

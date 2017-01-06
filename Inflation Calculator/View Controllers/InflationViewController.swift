@@ -47,6 +47,7 @@ class InflationViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         self.otherYearView = rightYearView
         self.otherYearLabel = rightYearLabel
         
+        self.updateCurrency(to: User.currency)
         self.setYears(targetingOnLeft: 1980, targetingOnRight: 2017)
         self.updateLabels()
     }
@@ -147,7 +148,7 @@ class InflationViewController: UIViewController, UIPickerViewDelegate, UIPickerV
                 if self.numberKeys.contains(viewToAnimate) {
                     transform = CGAffineTransform(scaleX: 0.875, y: 0.875)
                 } else if viewToAnimate == self.currencyView {
-                    transform = CGAffineTransform(translationX: 10.0, y: 0.0)
+                    transform = CGAffineTransform(scaleX: 0.875, y: 0.875)
                 } else {
                     transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
                 }
@@ -191,7 +192,6 @@ class InflationViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     var rightYear: Year = 2017
     
     var otherDollarValue: Double {
-        guard let currency = self.currency else { return currentDollarValue }
         return currency.calculateInflation(of: currentDollarValue, from: currentYear, to: otherYear) ?? currentDollarValue
     }
     
@@ -217,23 +217,29 @@ class InflationViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     let selectedYearColor = #colorLiteral(red: 0.003163533518, green: 0.5039576292, blue: 0.3017136455, alpha: 1)
     let selectedDollarsColor = #colorLiteral(red: 0.01015596557, green: 0.4034596086, blue: 0.2193256021, alpha: 1)
     
-    func updateCurrency(to currency: Currency?) {
-        if let currency = currency {
-            self.currency = currency
-            self.currencyLabel.text = currency.name
-            self.currencySymbol.text = currency.symbol
+    func updateCurrency(toCurrencyAtIndex index: Int?) {
+        if let index = index {
+            User.updateCurrency(to: index)
             
-            self.updateLabels()
-            self.pickerView.reloadAllComponents()
+            let currency = Currency.all[index]
+            self.updateCurrency(to: currency)
         }
+    }
+    
+    func updateCurrency(to currency: Currency) {
+        self.currency = currency
+        
+        self.currencyLabel.text = currency.name
+        self.currencySymbol.text = currency.symbol
+        
+        self.updateLabels()
+        self.pickerView.reloadAllComponents()
     }
     
     func setYears(targetingOnLeft leftTargetYear: Year, targetingOnRight rightTargetYear: Year) {
         
         //returns the actual year selected
         func update(label: UILabel, toTarget targetYear: Year) -> Year? {
-            guard let currency = self.currency else { return nil }
-            
             if currency.years.contains(targetYear) {
                 label.text = "\(targetYear)"
                 return targetYear
@@ -256,8 +262,7 @@ class InflationViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         }
         
         func apply(year: Year, toPickerSegment segment: Int) {
-            guard let currency = self.currency else { return }
-            guard let index = currency.years.index(of: year) else { return }
+            guard let index = self.currency.years.index(of: year) else { return }
             pickerView.selectRow(index, inComponent: segment, animated: false)
         }
         
@@ -321,14 +326,11 @@ class InflationViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     func updateLabels() {
         self.currentYearLabel.text = "\(currentYear)"
-        self.otherYearLabel.text = "\(otherYear)"
-        
-        guard let currency = self.currency else { return }
         
         let decimalDisplayCount = (self.decimalModeEnabled) ? 2 : 0
-        currentDollarsLabel.text = currentDollarValue.format(using: currency, decimalCount: decimalDisplayCount)
+        currentDollarsLabel.text = currentDollarValue.format(using: self.currency, decimalCount: decimalDisplayCount)
         
-        otherDollarsLabel.text = otherDollarValue.format(using: currency, decimalCount: 2)
+        otherDollarsLabel.text = otherDollarValue.format(using: self.currency, decimalCount: 2)
     }
     
     func auxillaryButtonPressed(_ view: UIView) {
@@ -365,7 +367,7 @@ class InflationViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return currency?.years.count ?? 0
+        return self.currency.years.count
     }
     
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
@@ -373,7 +375,7 @@ class InflationViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     }
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        guard let year = currency?.years[row] else { return NSAttributedString(string: "--") }
+        let year = self.currency.years[row]
         return NSAttributedString(string: "\(year)", attributes: [
             NSFontAttributeName : UIFont.systemFont(ofSize: 20.0),
             NSForegroundColorAttributeName : UIColor.white
@@ -381,12 +383,12 @@ class InflationViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if let year = currency?.years[row] {
-            if component == 0 {
-                self.leftYear = year
-            } else {
-                self.rightYear = year
-            }
+        let year = self.currency.years[row]
+        
+        if component == 0 {
+            self.leftYear = year
+        } else {
+            self.rightYear = year
         }
         
         self.updateLabels()
