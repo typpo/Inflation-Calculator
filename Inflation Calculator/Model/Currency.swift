@@ -13,20 +13,30 @@ typealias CPI = Double
 
 struct Currency {
     
+    //defined currencies
+    static let usDollar = Currency(named: "US Dollar", symbol: "$", flag: "🇺🇸")
+    static let euro = Currency(named: "Euro", symbol: "€", flag: "🇪🇺")
+    static let britishPound = Currency(named: "British Pound", symbol:  "£", flag: "🇬🇧")
+    static let japaneseYen = Currency(named: "Japanese Yen", symbol: "¥", flag: "🇯🇵")
+    
+    static let all = [usDollar, euro, britishPound, japaneseYen].flatMap { $0 }
+    
+    //properties
+    
     let name: String
-    let id: String
+    let flag: String
     let symbol: String
     
     let data: [Year : CPI]
     let years: [Year]
     
-    init?(named name: String, id: String, symbol: String) {
+    init?(named name: String, symbol: String, flag: String) {
         self.name = name
-        self.id = id
         self.symbol = symbol
+        self.flag = flag
         
         //load data dictionary from CSV
-        guard let dataURL = Bundle.main.url(forResource: "Currencies/\(id)", withExtension: "csv"),
+        guard let dataURL = Bundle.main.url(forResource: "Currencies/\(name)", withExtension: "csv"),
             let dataText = try? String(contentsOf: dataURL) else {
                 return nil
         }
@@ -78,7 +88,7 @@ extension Double {
         formatter.numberStyle = .currency
         
         let usdFormat = formatter.string(from: NSNumber(value: self))
-        let currencyFormatted = usdFormat?.replacingOccurrences(of: "$ ", with: currency.symbol)
+        let currencyFormatted = usdFormat?.replacingOccurrences(of: "$", with: currency.symbol)
         
         guard let stringWithDecimal = currencyFormatted else { return "\(currency.symbol)--" }
         let numberComponents = stringWithDecimal.components(separatedBy: ".")

@@ -29,7 +29,7 @@ class InflationViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBOutlet var numberKeys: [UIView]!
     @IBOutlet var interactiveViews: [UIView]!
     
-    var currency = Currency(named: "US Dollar", id: "USD", symbol: "$")
+    var currency = Currency.usDollar
     
     
     //MARK: - View Setup
@@ -147,7 +147,7 @@ class InflationViewController: UIViewController, UIPickerViewDelegate, UIPickerV
                 if self.numberKeys.contains(viewToAnimate) {
                     transform = CGAffineTransform(scaleX: 0.875, y: 0.875)
                 } else if viewToAnimate == self.currencyView {
-                    transform = CGAffineTransform(translationX: 20.0, y: 0.0)
+                    transform = CGAffineTransform(translationX: 10.0, y: 0.0)
                 } else {
                     transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
                 }
@@ -158,7 +158,7 @@ class InflationViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             }
             
             else {
-                let delay = (viewToAnimate == self.currencyView) ? 0.3 : 0.0
+                let delay = (viewToAnimate == self.currencyView) ? 0.5 : 0.0
                 
                 UIView.animate(withDuration: 0.2, delay: delay, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: [.beginFromCurrentState, .allowUserInteraction], animations: {
                     viewToAnimate.transform = .identity
@@ -170,6 +170,8 @@ class InflationViewController: UIViewController, UIPickerViewDelegate, UIPickerV
                 
                 if self.numberKeys.contains(view) {
                     self.numberButtonPressed(view)
+                } else if view == self.currencyTouchView {
+                    CurrencyViewController.present(over: self, completion: self.updateCurrency)
                 } else {
                     self.auxillaryButtonPressed(view)
                 }
@@ -214,6 +216,17 @@ class InflationViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     let unselectedColor = #colorLiteral(red: 0.1568627954, green: 0.6078432202, blue: 0.3960783482, alpha: 1)
     let selectedYearColor = #colorLiteral(red: 0.003163533518, green: 0.5039576292, blue: 0.3017136455, alpha: 1)
     let selectedDollarsColor = #colorLiteral(red: 0.01015596557, green: 0.4034596086, blue: 0.2193256021, alpha: 1)
+    
+    func updateCurrency(to currency: Currency?) {
+        if let currency = currency {
+            self.currency = currency
+            self.currencyLabel.text = currency.name
+            self.currencySymbol.text = currency.symbol
+            
+            self.updateLabels()
+            self.pickerView.reloadAllComponents()
+        }
+    }
     
     func setYears(targetingOnLeft leftTargetYear: Year, targetingOnRight rightTargetYear: Year) {
         
@@ -292,7 +305,7 @@ class InflationViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             clearCurrentInput()
         }
         
-        //decimal butotn
+        //decimal button
         else if labelText == "." {
             self.decimalModeEnabled = true
             updateLabels()

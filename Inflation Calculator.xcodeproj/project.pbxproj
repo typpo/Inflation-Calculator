@@ -11,6 +11,8 @@
 		2E261B041E1B36530049B898 /* SelectCornerRadiusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E261B031E1B36530049B898 /* SelectCornerRadiusView.swift */; };
 		2E261B0C1E1B6AFC0049B898 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E261B0B1E1B6AFC0049B898 /* Currency.swift */; };
 		2E261B0E1E1B72D20049B898 /* Currencies in Resources */ = {isa = PBXBuildFile; fileRef = 2E261B0D1E1B72D20049B898 /* Currencies */; };
+		2E3B7C361E1F396100CC2133 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3B7C351E1F396100CC2133 /* CircleView.swift */; };
+		2E3B7C381E1F41B200CC2133 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3B7C371E1F41B200CC2133 /* CurrencyViewController.swift */; };
 		2E7D8CD21C1F85660031499D /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E7D8CD01C1F85660031499D /* Interface.storyboard */; };
 		2E7D8CD41C1F85660031499D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E7D8CD31C1F85660031499D /* Assets.xcassets */; };
 		2E7D8CDB1C1F85660031499D /* Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2E7D8CDA1C1F85660031499D /* Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -84,6 +86,8 @@
 		2E261B031E1B36530049B898 /* SelectCornerRadiusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCornerRadiusView.swift; sourceTree = "<group>"; };
 		2E261B0B1E1B6AFC0049B898 /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Currency.swift; path = Model/Currency.swift; sourceTree = "<group>"; };
 		2E261B0D1E1B72D20049B898 /* Currencies */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Currencies; sourceTree = SOURCE_ROOT; };
+		2E3B7C351E1F396100CC2133 /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		2E3B7C371E1F41B200CC2133 /* CurrencyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
 		2E7D8CCE1C1F85660031499D /* Inflation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Inflation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E7D8CD11C1F85660031499D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		2E7D8CD31C1F85660031499D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -126,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				2E261B031E1B36530049B898 /* SelectCornerRadiusView.swift */,
+				2E3B7C351E1F396100CC2133 /* CircleView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -134,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				2E261B001E1B35CD0049B898 /* InflationViewController.swift */,
+				2E3B7C371E1F41B200CC2133 /* CurrencyViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -368,6 +374,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E261B0C1E1B6AFC0049B898 /* Currency.swift in Sources */,
+				2E3B7C381E1F41B200CC2133 /* CurrencyViewController.swift in Sources */,
+				2E3B7C361E1F396100CC2133 /* CircleView.swift in Sources */,
 				2EE6B10B19E0466F0025D4C0 /* AppDelegate.swift in Sources */,
 				2E261B011E1B35CD0049B898 /* InflationViewController.swift in Sources */,
 				2E261B041E1B36530049B898 /* SelectCornerRadiusView.swift in Sources */,
