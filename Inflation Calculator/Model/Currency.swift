@@ -40,6 +40,8 @@ struct Currency {
                       southKoreanWon, turkishLira, brazilianReal, southAfricanRand,
                       indianRupee, russianRuble, israeliSheqel, indonesianRupiah]
     
+    static let allFlags = "🇺🇸🇪🇺🇬🇧🇯🇵🇨🇦🇨🇭🇨🇳🇸🇪🇲🇽🇳🇴🇰🇷🇹🇷🇧🇷🇿🇦🇮🇳🇷🇺🇮🇱🇮🇩"
+    
     
     //MARK: - Properties
     

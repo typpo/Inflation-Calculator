@@ -10,14 +10,19 @@ import UIKit
 
 class User {
     
-    enum Key : String, UserDefaultsKey {
+    private enum Key : String, UserDefaultsKey {
         case currencyIndex = "User.currencyIndex"
+        case currencyUpgradePurchased = "User.currencyUpgradePurchased"
     }
+    
+    static let current = User()
+    
+    private init() { }
     
     
     //MARK: - Currency
     
-    static var currency: Currency {
+    var currency: Currency {
         guard let index = UserDefaults.standard.get(Key.currencyIndex) as? Int else {
             return .usDollar
         }
@@ -29,8 +34,26 @@ class User {
         return Currency.all[index]
     }
     
-    static func updateCurrency(to index: Int) {
+    func updateCurrency(to index: Int) {
         UserDefaults.standard.update(Key.currencyIndex, to: index)
+    }
+    
+    
+    //MARK: - Upgrades
+    
+    //FIXME: remove temp
+    private let purchasedKey = "UserHasPurchased-temp2"
+    
+    var hasPurchasedCurrencyUpgrade: Bool {
+        get {
+            guard let string = UserDefaults.standard.get(Key.currencyUpgradePurchased) as? String else { return false }
+            return string == self.purchasedKey
+        }
+        set(newValue) {
+            let valueToStore = (newValue) ? self.purchasedKey : nil
+            UserDefaults.standard.update(Key.currencyUpgradePurchased, to: valueToStore)
+            UserDefaults.standard.synchronize()
+        }
     }
     
 }

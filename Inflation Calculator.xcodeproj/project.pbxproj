@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E2593F91E20195B006FE7AC /* UpgradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2593F81E20195B006FE7AC /* UpgradeViewController.swift */; };
+		2E2593FE1E2035EC006FE7AC /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2593FD1E2035EC006FE7AC /* StoreManager.swift */; };
 		2E261B011E1B35CD0049B898 /* InflationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E261B001E1B35CD0049B898 /* InflationViewController.swift */; };
 		2E261B041E1B36530049B898 /* SelectCornerRadiusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E261B031E1B36530049B898 /* SelectCornerRadiusView.swift */; };
 		2E261B0C1E1B6AFC0049B898 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E261B0B1E1B6AFC0049B898 /* Currency.swift */; };
@@ -25,6 +27,7 @@
 		2E7D8CF41C1F85F90031499D /* ValueController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7D8CF11C1F85F90031499D /* ValueController.swift */; };
 		2E7D8CF51C1F85F90031499D /* YearController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7D8CF21C1F85F90031499D /* YearController.swift */; };
 		2E7D8CF61C1F8D850031499D /* Inflation.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 2E7D8CCE1C1F85660031499D /* Inflation.app */; };
+		2EA511681E20C0D400970604 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EA511671E20C0D400970604 /* StoreKit.framework */; };
 		2EB9BBCC19E74ADD00BE87BB /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EB9BBCB19E74ADD00BE87BB /* Launch Screen.xib */; };
 		2EE6B10B19E0466F0025D4C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE6B10A19E0466F0025D4C0 /* AppDelegate.swift */; };
 		2EE6B11019E046700025D4C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EE6B10E19E046700025D4C0 /* Main.storyboard */; };
@@ -84,6 +87,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2E2593F81E20195B006FE7AC /* UpgradeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpgradeViewController.swift; sourceTree = "<group>"; };
+		2E2593FD1E2035EC006FE7AC /* StoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoreManager.swift; path = Model/StoreManager.swift; sourceTree = "<group>"; };
 		2E261B001E1B35CD0049B898 /* InflationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InflationViewController.swift; sourceTree = "<group>"; };
 		2E261B031E1B36530049B898 /* SelectCornerRadiusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCornerRadiusView.swift; sourceTree = "<group>"; };
 		2E261B0B1E1B6AFC0049B898 /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Currency.swift; path = Model/Currency.swift; sourceTree = "<group>"; };
@@ -104,6 +109,7 @@
 		2E7D8CF01C1F85F90031499D /* CPIdata.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CPIdata.txt; sourceTree = "<group>"; };
 		2E7D8CF11C1F85F90031499D /* ValueController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueController.swift; sourceTree = "<group>"; };
 		2E7D8CF21C1F85F90031499D /* YearController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearController.swift; sourceTree = "<group>"; };
+		2EA511671E20C0D400970604 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		2EB9BBCB19E74ADD00BE87BB /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Launch Screen.xib"; path = "../Launch Screen.xib"; sourceTree = "<group>"; };
 		2EE6B10519E0466F0025D4C0 /* Inflation Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Inflation Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EE6B10919E0466F0025D4C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -124,12 +130,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EA511681E20C0D400970604 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E2593FA1E20358E006FE7AC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2EA511671E20C0D400970604 /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2E261AFE1E1B35CD0049B898 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +160,7 @@
 				2E3B7C3D1E1F66EE00CC2133 /* NavigationController.swift */,
 				2E261B001E1B35CD0049B898 /* InflationViewController.swift */,
 				2E3B7C371E1F41B200CC2133 /* CurrencyViewController.swift */,
+				2E2593F81E20195B006FE7AC /* UpgradeViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -155,6 +171,7 @@
 				2E261B0D1E1B72D20049B898 /* Currencies */,
 				2E261B0B1E1B6AFC0049B898 /* Currency.swift */,
 				2E3B7C3B1E1F612900CC2133 /* User.swift */,
+				2E2593FD1E2035EC006FE7AC /* StoreManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -190,6 +207,7 @@
 				2E7D8CCF1C1F85660031499D /* Watch */,
 				2E7D8CDE1C1F85660031499D /* Watch Extension */,
 				2EE6B10619E0466F0025D4C0 /* Products */,
+				2E2593FA1E20358E006FE7AC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -206,8 +224,8 @@
 		2EE6B10719E0466F0025D4C0 /* Inflation Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				2E261B0A1E1B6AD60049B898 /* Model */,
 				2EE6B10A19E0466F0025D4C0 /* AppDelegate.swift */,
+				2E261B0A1E1B6AD60049B898 /* Model */,
 				2E261AFF1E1B35CD0049B898 /* View Controllers */,
 				2E261AFE1E1B35CD0049B898 /* Custom Views */,
 				2EE6B10E19E046700025D4C0 /* Main.storyboard */,
@@ -308,6 +326,11 @@
 						CreatedOnToolsVersion = 6.0.1;
 						DevelopmentTeam = FZ89A5SZ7C;
 						LastSwiftMigration = 0820;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -379,10 +402,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E2593FE1E2035EC006FE7AC /* StoreManager.swift in Sources */,
 				2E261B0C1E1B6AFC0049B898 /* Currency.swift in Sources */,
 				2E3B7C3E1E1F66EE00CC2133 /* NavigationController.swift in Sources */,
 				2E3B7C381E1F41B200CC2133 /* CurrencyViewController.swift in Sources */,
 				2E3B7C361E1F396100CC2133 /* CircleView.swift in Sources */,
+				2E2593F91E20195B006FE7AC /* UpgradeViewController.swift in Sources */,
 				2EE6B10B19E0466F0025D4C0 /* AppDelegate.swift in Sources */,
 				2E261B011E1B35CD0049B898 /* InflationViewController.swift in Sources */,
 				2E261B041E1B36530049B898 /* SelectCornerRadiusView.swift in Sources */,

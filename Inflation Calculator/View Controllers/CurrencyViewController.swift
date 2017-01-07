@@ -10,20 +10,33 @@ import UIKit
 
 class CurrencyViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    
+    //MARK: - Setup
+    
     static let identifier = "currencySelector"
     
-    static func present(over presenter: UIViewController, completion: ((Int?) -> ())?) {
+    static func present(over presenter: UIViewController, allowSelection: Bool = true, completion: ((Int?) -> ())?) {
         let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: CurrencyViewController.identifier) as! CurrencyViewController
         controller.completion = completion
+        controller.allowSelection = allowSelection
         
         presenter.present(controller, animated: true, completion: nil)
     }
     
     
     var completion: ((Int?) -> ())? = nil
+    var allowSelection = true
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .default
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableView.allowsSelection = self.allowSelection
+        self.titleLabel.text = (self.allowSelection) ? "Select Currency" : "All Currencies"
     }
     
     
@@ -59,8 +72,6 @@ class CurrencyViewController : UIViewController, UITableViewDataSource, UITableV
         self.completion?(indexPath.item)
         self.dismiss(animated: true, completion: nil)
     }
-    
-    
     
 }
 

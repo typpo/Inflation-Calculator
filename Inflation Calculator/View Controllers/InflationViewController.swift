@@ -47,7 +47,7 @@ class InflationViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         self.otherYearView = rightYearView
         self.otherYearLabel = rightYearLabel
         
-        self.updateCurrency(to: User.currency)
+        self.updateCurrency(to: User.current.currency)
         self.setYears(targetingOnLeft: 1980, targetingOnRight: 2017)
         self.updateLabels()
     }
@@ -172,7 +172,7 @@ class InflationViewController: UIViewController, UIPickerViewDelegate, UIPickerV
                 if self.numberKeys.contains(view) {
                     self.numberButtonPressed(view)
                 } else if view == self.currencyTouchView {
-                    CurrencyViewController.present(over: self, completion: self.updateCurrency)
+                    self.presentCurrencySelector()
                 } else {
                     self.auxillaryButtonPressed(view)
                 }
@@ -181,6 +181,13 @@ class InflationViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         }
     }
     
+    func presentCurrencySelector() {
+        if User.current.hasPurchasedCurrencyUpgrade {
+            CurrencyViewController.present(over: self, completion: self.updateCurrency)
+        } else {
+            UpgradeViewController.present(over: self)
+        }
+    }
     
     //MARK: - Manage Views and Labels
     
@@ -219,7 +226,7 @@ class InflationViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     func updateCurrency(toCurrencyAtIndex index: Int?) {
         if let index = index {
-            User.updateCurrency(to: index)
+            User.current.updateCurrency(to: index)
             
             let currency = Currency.all[index]
             self.updateCurrency(to: currency)
