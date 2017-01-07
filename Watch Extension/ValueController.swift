@@ -21,24 +21,10 @@ class ValueController : WKInterfaceController {
     //green (1) has identityDummy, blue (2) does not
     @IBOutlet weak var identityDummy: WKInterfaceLabel?
     
-   /*
     override func willActivate() {
-        currentValue = (identityDummy != nil ? Inflation.Data.dollars1 : Inflation.Data.dollars2)
-        decimalState = .Full
-        if currentValue % 0.1 == 0 {
-            decimalState = .ReadyTwo
-        }
-        if currentValue % 1 == 0 {
-            decimalState = .Disabled
-        }
         updateLabel()
-    }
-    */
-    
-    override func didDeactivate() {
-        Inflation.Data.checkDataLoaded()
-        Inflation.Data.anchor1 = identityDummy != nil
-        Inflation.Data.updateValuesForCPI()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateLabel), name: ICRefreshCurrencyNotification, object: nil)
     }
     
     func numberButtonPressed(_ value: Int){
@@ -72,11 +58,19 @@ class ValueController : WKInterfaceController {
     }
     
     func updateLabel(){
-        label.setText(formatAmount(currentValue, forceDecimal: self.decimalState != .disabled))
+        let decimalCount = (self.decimalState == .disabled ? 0 : 2)
+        label.setText(currentValue.format(using: Inflation.Controller.currency, decimalCount: decimalCount))
+        
         if identityDummy != nil {
-            Inflation.Data.dollars1 = currentValue
+            Inflation.Controller.anchor1 = true
+            Inflation.Controller.dollars1 = currentValue
+            Inflation.Controller.dollars1HasDecimal = (self.decimalState != .disabled)
+            Inflation.Controller.dollars2HasDecimal = true
         } else {
-            Inflation.Data.dollars2 = currentValue
+            Inflation.Controller.anchor1 = false
+            Inflation.Controller.dollars2 = currentValue
+            Inflation.Controller.dollars2HasDecimal = (self.decimalState != .disabled)
+            Inflation.Controller.dollars1HasDecimal = true
         }
     }
     
@@ -120,36 +114,4 @@ class ValueController : WKInterfaceController {
         numberButtonPressed(0)
     }
     
-}
-
-func formatAmount(_ amount:Double, forceDecimal: Bool = false) -> String {
-    return "\(amount)" //maybe try to reimplement using the NSString formatter?
-    /*let hasDecimal = amount.truncatingRemainder(dividingBy: 1) != 0
-    let floatRounded = String(NSString(format: "%.02f", amount))
-    
-    let range = floatRounded
-    var withoutDecimal = floatRounded.substring(with: range)
-    
-    
-    var pieces : Array<String> = []
-    /*while(withoutDecimal.characters.count > 3){
-        let index = .index(before: .index(before: withoutDecimal.characters.index(before: withoutDecimal.endIndex)))
-        pieces.append(withoutDecimal.substring(from: index))
-        withoutDecimal = withoutDecimal.substring(to: index)
-    }*/
-    pieces.append(withoutDecimal)
-    
-    pieces = Array(pieces.reversed())
-    var moneyFormatted = pieces[0]
-    if(pieces.count > 1){
-        for i in 1...(pieces.count - 1){
-            moneyFormatted += ",\(pieces[i])"
-        }
-    }
-    
-    if (hasDecimal || forceDecimal) {
-        moneyFormatted += floatRounded.substring(from: range.upperBound)
-    }
-    
-    return "$\(moneyFormatted)"*/
 }

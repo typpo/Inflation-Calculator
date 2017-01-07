@@ -11,7 +11,6 @@
 		2E2593FE1E2035EC006FE7AC /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2593FD1E2035EC006FE7AC /* StoreManager.swift */; };
 		2E261B011E1B35CD0049B898 /* InflationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E261B001E1B35CD0049B898 /* InflationViewController.swift */; };
 		2E261B041E1B36530049B898 /* SelectCornerRadiusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E261B031E1B36530049B898 /* SelectCornerRadiusView.swift */; };
-		2E261B0C1E1B6AFC0049B898 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E261B0B1E1B6AFC0049B898 /* Currency.swift */; };
 		2E261B0E1E1B72D20049B898 /* Currencies in Resources */ = {isa = PBXBuildFile; fileRef = 2E261B0D1E1B72D20049B898 /* Currencies */; };
 		2E3B7C361E1F396100CC2133 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3B7C351E1F396100CC2133 /* CircleView.swift */; };
 		2E3B7C381E1F41B200CC2133 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3B7C371E1F41B200CC2133 /* CurrencyViewController.swift */; };
@@ -23,11 +22,15 @@
 		2E7D8CE01C1F85660031499D /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7D8CDF1C1F85660031499D /* InterfaceController.swift */; };
 		2E7D8CE21C1F85660031499D /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7D8CE11C1F85660031499D /* ExtensionDelegate.swift */; };
 		2E7D8CE41C1F85660031499D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E7D8CE31C1F85660031499D /* Assets.xcassets */; };
-		2E7D8CF31C1F85F90031499D /* CPIdata.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2E7D8CF01C1F85F90031499D /* CPIdata.txt */; };
 		2E7D8CF41C1F85F90031499D /* ValueController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7D8CF11C1F85F90031499D /* ValueController.swift */; };
 		2E7D8CF51C1F85F90031499D /* YearController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7D8CF21C1F85F90031499D /* YearController.swift */; };
 		2E7D8CF61C1F8D850031499D /* Inflation.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 2E7D8CCE1C1F85660031499D /* Inflation.app */; };
 		2EA511681E20C0D400970604 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EA511671E20C0D400970604 /* StoreKit.framework */; };
+		2EA5116D1E20CBDB00970604 /* Currency-Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA5116C1E20CBDB00970604 /* Currency-Shared.swift */; };
+		2EA5116F1E20CC9900970604 /* Currencies in Resources */ = {isa = PBXBuildFile; fileRef = 2EA5116E1E20CC9900970604 /* Currencies */; };
+		2EA511711E20CCC100970604 /* Currency-Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA511701E20CCC100970604 /* Currency-Shared.swift */; };
+		2EA511731E20CFDA00970604 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA511721E20CFDA00970604 /* Controller.swift */; };
+		2EA511781E20EBA800970604 /* RateVewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA511771E20EBA800970604 /* RateVewController.swift */; };
 		2EB9BBCC19E74ADD00BE87BB /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EB9BBCB19E74ADD00BE87BB /* Launch Screen.xib */; };
 		2EE6B10B19E0466F0025D4C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE6B10A19E0466F0025D4C0 /* AppDelegate.swift */; };
 		2EE6B11019E046700025D4C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EE6B10E19E046700025D4C0 /* Main.storyboard */; };
@@ -91,7 +94,6 @@
 		2E2593FD1E2035EC006FE7AC /* StoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoreManager.swift; path = Model/StoreManager.swift; sourceTree = "<group>"; };
 		2E261B001E1B35CD0049B898 /* InflationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InflationViewController.swift; sourceTree = "<group>"; };
 		2E261B031E1B36530049B898 /* SelectCornerRadiusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCornerRadiusView.swift; sourceTree = "<group>"; };
-		2E261B0B1E1B6AFC0049B898 /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Currency.swift; path = Model/Currency.swift; sourceTree = "<group>"; };
 		2E261B0D1E1B72D20049B898 /* Currencies */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Currencies; sourceTree = SOURCE_ROOT; };
 		2E3B7C351E1F396100CC2133 /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		2E3B7C371E1F41B200CC2133 /* CurrencyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
@@ -106,10 +108,17 @@
 		2E7D8CE11C1F85660031499D /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		2E7D8CE31C1F85660031499D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E7D8CE51C1F85660031499D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2E7D8CF01C1F85F90031499D /* CPIdata.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CPIdata.txt; sourceTree = "<group>"; };
 		2E7D8CF11C1F85F90031499D /* ValueController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueController.swift; sourceTree = "<group>"; };
 		2E7D8CF21C1F85F90031499D /* YearController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearController.swift; sourceTree = "<group>"; };
 		2EA511671E20C0D400970604 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		2EA5116C1E20CBDB00970604 /* Currency-Shared.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Currency-Shared.swift"; sourceTree = SOURCE_ROOT; };
+		2EA5116E1E20CC9900970604 /* Currencies */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Currencies; sourceTree = SOURCE_ROOT; };
+		2EA511701E20CCC100970604 /* Currency-Shared.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Currency-Shared.swift"; sourceTree = SOURCE_ROOT; };
+		2EA511721E20CFDA00970604 /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
+		2EA511741E20D22700970604 /* Inflation Calculator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Inflation Calculator.entitlements"; sourceTree = "<group>"; };
+		2EA511751E20D24400970604 /* Watch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Watch Extension.entitlements"; sourceTree = "<group>"; };
+		2EA511761E20D24A00970604 /* Inflation.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Inflation.entitlements; sourceTree = "<group>"; };
+		2EA511771E20EBA800970604 /* RateVewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RateVewController.swift; sourceTree = "<group>"; };
 		2EB9BBCB19E74ADD00BE87BB /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Launch Screen.xib"; path = "../Launch Screen.xib"; sourceTree = "<group>"; };
 		2EE6B10519E0466F0025D4C0 /* Inflation Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Inflation Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EE6B10919E0466F0025D4C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -161,6 +170,7 @@
 				2E261B001E1B35CD0049B898 /* InflationViewController.swift */,
 				2E3B7C371E1F41B200CC2133 /* CurrencyViewController.swift */,
 				2E2593F81E20195B006FE7AC /* UpgradeViewController.swift */,
+				2EA511771E20EBA800970604 /* RateVewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -168,8 +178,8 @@
 		2E261B0A1E1B6AD60049B898 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2EA5116C1E20CBDB00970604 /* Currency-Shared.swift */,
 				2E261B0D1E1B72D20049B898 /* Currencies */,
-				2E261B0B1E1B6AFC0049B898 /* Currency.swift */,
 				2E3B7C3B1E1F612900CC2133 /* User.swift */,
 				2E2593FD1E2035EC006FE7AC /* StoreManager.swift */,
 			);
@@ -189,15 +199,26 @@
 		2E7D8CDE1C1F85660031499D /* Watch Extension */ = {
 			isa = PBXGroup;
 			children = (
+				2EA511791E21051D00970604 /* Model */,
+				2EA511751E20D24400970604 /* Watch Extension.entitlements */,
+				2EA511721E20CFDA00970604 /* Controller.swift */,
 				2E7D8CDF1C1F85660031499D /* InterfaceController.swift */,
-				2E7D8CE11C1F85660031499D /* ExtensionDelegate.swift */,
-				2E7D8CF01C1F85F90031499D /* CPIdata.txt */,
 				2E7D8CF11C1F85F90031499D /* ValueController.swift */,
 				2E7D8CF21C1F85F90031499D /* YearController.swift */,
 				2E7D8CE31C1F85660031499D /* Assets.xcassets */,
 				2E7D8CE51C1F85660031499D /* Info.plist */,
 			);
 			path = "Watch Extension";
+			sourceTree = "<group>";
+		};
+		2EA511791E21051D00970604 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2EA5116E1E20CC9900970604 /* Currencies */,
+				2EA511701E20CCC100970604 /* Currency-Shared.swift */,
+				2E7D8CE11C1F85660031499D /* ExtensionDelegate.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		2EE6B0FC19E0466F0025D4C0 = {
@@ -208,6 +229,7 @@
 				2E7D8CDE1C1F85660031499D /* Watch Extension */,
 				2EE6B10619E0466F0025D4C0 /* Products */,
 				2E2593FA1E20358E006FE7AC /* Frameworks */,
+				2EA511761E20D24A00970604 /* Inflation.entitlements */,
 			);
 			sourceTree = "<group>";
 		};
@@ -239,6 +261,7 @@
 		2EE6B10819E0466F0025D4C0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2EA511741E20D22700970604 /* Inflation Calculator.entitlements */,
 				2EE6B10919E0466F0025D4C0 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -316,19 +339,38 @@
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = FZ89A5SZ7C;
 						LastSwiftMigration = 0820;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					2E7D8CD91C1F85660031499D = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = FZ89A5SZ7C;
 						LastSwiftMigration = 0820;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
 					};
 					2EE6B10419E0466F0025D4C0 = {
 						CreatedOnToolsVersion = 6.0.1;
 						DevelopmentTeam = FZ89A5SZ7C;
 						LastSwiftMigration = 0820;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.InAppPurchase = {
 								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 0;
 							};
 						};
 					};
@@ -369,7 +411,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E7D8CE41C1F85660031499D /* Assets.xcassets in Resources */,
-				2E7D8CF31C1F85F90031499D /* CPIdata.txt in Resources */,
+				2EA5116F1E20CC9900970604 /* Currencies in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,8 +434,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E7D8CF51C1F85F90031499D /* YearController.swift in Sources */,
+				2EA511731E20CFDA00970604 /* Controller.swift in Sources */,
 				2E7D8CE21C1F85660031499D /* ExtensionDelegate.swift in Sources */,
 				2E7D8CE01C1F85660031499D /* InterfaceController.swift in Sources */,
+				2EA511711E20CCC100970604 /* Currency-Shared.swift in Sources */,
 				2E7D8CF41C1F85F90031499D /* ValueController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -403,13 +447,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E2593FE1E2035EC006FE7AC /* StoreManager.swift in Sources */,
-				2E261B0C1E1B6AFC0049B898 /* Currency.swift in Sources */,
 				2E3B7C3E1E1F66EE00CC2133 /* NavigationController.swift in Sources */,
 				2E3B7C381E1F41B200CC2133 /* CurrencyViewController.swift in Sources */,
+				2EA5116D1E20CBDB00970604 /* Currency-Shared.swift in Sources */,
 				2E3B7C361E1F396100CC2133 /* CircleView.swift in Sources */,
 				2E2593F91E20195B006FE7AC /* UpgradeViewController.swift in Sources */,
 				2EE6B10B19E0466F0025D4C0 /* AppDelegate.swift in Sources */,
 				2E261B011E1B35CD0049B898 /* InflationViewController.swift in Sources */,
+				2EA511781E20EBA800970604 /* RateVewController.swift in Sources */,
 				2E261B041E1B36530049B898 /* SelectCornerRadiusView.swift in Sources */,
 				2E3B7C3C1E1F612900CC2133 /* User.swift in Sources */,
 			);
@@ -453,6 +498,7 @@
 		2E7D8CEA1C1F85660031499D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Watch Extension/Watch Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -464,13 +510,14 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Debug;
 		};
 		2E7D8CEB1C1F85660031499D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Watch Extension/Watch Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -483,7 +530,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Release;
 		};
@@ -492,6 +539,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Inflation.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -513,6 +561,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Inflation.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
@@ -620,6 +669,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Inflation Calculator/Inflation Calculator.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Inflation Calculator/Info.plist";
@@ -638,6 +688,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Inflation Calculator/Inflation Calculator.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Inflation Calculator/Info.plist";

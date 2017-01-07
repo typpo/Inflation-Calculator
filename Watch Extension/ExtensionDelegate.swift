@@ -6,21 +6,38 @@
 //  Copyright © 2015 Cal. All rights reserved.
 //
 
+import WatchConnectivity
 import WatchKit
 
-class ExtensionDelegate: NSObject, WKExtensionDelegate {
+let ICRefreshCurrencyNotification = NSNotification.Name("ICRefreshCurrencyNotification")
 
+class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
+    
+    
+    //MARK: - Listen for Currency Changes
+    
+    var session: WCSession = WCSession.default()
+    
     func applicationDidFinishLaunching() {
-        // Perform any final initialization of your application.
+        session.delegate = self
+        session.activate()
     }
-
-    func applicationDidBecomeActive() {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    public func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        print("Activation Complete")
     }
-
-    func applicationWillResignActive() {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, etc.
+    
+    //I really love WatchConnectivity now ::
+    //if the user changes their currency when the watch app is closed,
+    //the watch app receives the update as soon as the app opens
+    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
+        print("Received Application Context::")
+        for (key, value) in applicationContext {
+            print("\(key) = \(value)")
+            UserDefaults.standard.set(value, forKey: key)
+        }
+        
+        NotificationCenter.default.post(name: ICRefreshCurrencyNotification, object: nil)
     }
-
+    
 }

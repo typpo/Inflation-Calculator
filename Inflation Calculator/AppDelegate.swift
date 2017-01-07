@@ -16,9 +16,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        SKPaymentQueue.default().add(StoreManager.main)
+        self.appBecameVisible()
         
+        //prepare to listen for IAPs
+        SKPaymentQueue.default().add(StoreManager.main)
+
         return true
+    }
+    
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        self.appBecameVisible()
+    }
+    
+    func appBecameVisible() {
+        User.current.numberOfAppLaunches += 1
+        print(User.current.numberOfAppLaunches)
+        
+        if User.current.isEligableForRateAlert {
+            guard let navigation = window?.rootViewController else { return }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(400)) {
+                RateViewController.present(over: navigation)
+            }
+        }
     }
 
 }

@@ -6,7 +6,7 @@
 //  Copyright © 2017 Cal. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 typealias Year = Int
 typealias CPI = Double
@@ -39,8 +39,6 @@ struct Currency {
                       swissFranc, chineseYuan, swedishKrona, mexicanPeso, norwegianKrone,
                       southKoreanWon, turkishLira, brazilianReal, southAfricanRand,
                       indianRupee, russianRuble, israeliSheqel, indonesianRupiah]
-    
-    static let allFlags = "🇺🇸🇪🇺🇬🇧🇯🇵🇨🇦🇨🇭🇨🇳🇸🇪🇲🇽🇳🇴🇰🇷🇹🇷🇧🇷🇿🇦🇮🇳🇷🇺🇮🇱🇮🇩"
     
     
     //MARK: - Properties

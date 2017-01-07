@@ -25,10 +25,18 @@ class YearController : WKInterfaceController {
     @IBOutlet weak var identityDummy: WKInterfaceLabel?
     
     override func willActivate() {
+        updateForCurrency()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateForCurrency), name: ICRefreshCurrencyNotification, object: nil)
+    }
+    
+    func updateForCurrency() {
+        Inflation.Controller.clampYearsToCurrencyRange()
+        
         if identityDummy != nil {
-            year = "\(Inflation.Data.year1)"
+            year = "\(Inflation.Controller.year1)"
         } else {
-            year = "\(Inflation.Data.year2)"
+            year = "\(Inflation.Controller.year2)"
             centurySlider.setColor(UIColor(red: 10/255, green: 85/255, blue: 119/255, alpha: 1))
             decadeSlider.setColor(UIColor(red: 10/255, green: 85/255, blue: 119/255, alpha: 1))
             yearSlider.setColor(UIColor(red: 10/255, green: 85/255, blue: 119/255, alpha: 1))
@@ -37,20 +45,18 @@ class YearController : WKInterfaceController {
         updateSlidersForYear(Int(year)!)
         
         //set up year picker
+        let minYear = Inflation.Controller.currency.earliestYear
+        let maxYear = Inflation.Controller.currency.mostRecentYear
+        
         var pickerItems: [WKPickerItem] = []
-        for year in 1800...2016 {
+        for year in minYear...maxYear {
             let item = WKPickerItem()
             item.title = "\(year)"
             pickerItems.insert(item, at: 0)
         }
+        
         yearPicker.setItems(pickerItems)
-        yearPicker.setSelectedItemIndex(2016 - Int(year)!)
-
-    }
-
-    override func didDeactivate() {
-        Inflation.Data.checkDataLoaded()
-        Inflation.Data.updateValuesForCPI()
+        yearPicker.setSelectedItemIndex(maxYear - Int(year)!)
     }
     
     @IBAction func centuryUpdated(_ float: Float) {
@@ -75,14 +81,20 @@ class YearController : WKInterfaceController {
     }
     
     func updateLabel() {
-        yearPicker.setSelectedItemIndex(2016 - Int(year)!)
+        let minYear = Inflation.Controller.currency.earliestYear
+        let maxYear = Inflation.Controller.currency.mostRecentYear
         
-        if Int(year)! > 2016 {
-            year = "2016"
-            decadeLabel.setText("1")
-            yearLabel.setText("6")
-            decadeSlider.setValue(1)
-            yearSlider.setValue(6)
+        yearPicker.setSelectedItemIndex(maxYear - Int(year)!)
+        
+        if Int(year)! > maxYear {
+            year = "\(maxYear)"
+            updateSlidersForYear(maxYear)
+            updateLabel()
+        }
+        
+        else if Int(year)! < minYear {
+            year = "\(minYear)"
+            updateSlidersForYear(minYear)
             updateLabel()
         }
         
@@ -90,7 +102,7 @@ class YearController : WKInterfaceController {
     }
     
     @IBAction func yearPicked(_ value: Int) {
-        let selectedYear = 2016 - value
+        let selectedYear = Inflation.Controller.currency.mostRecentYear - value
         year = "\(selectedYear)"
         updateSlidersForYear(selectedYear)
         updateSavedYear()
@@ -111,9 +123,9 @@ class YearController : WKInterfaceController {
     
     func updateSavedYear() {
         if identityDummy != nil {
-            Inflation.Data.year1 = Int(year)!
+            Inflation.Controller.year1 = Int(year)!
         } else {
-            Inflation.Data.year2 = Int(year)!
+            Inflation.Controller.year2 = Int(year)!
         }
     }
     
