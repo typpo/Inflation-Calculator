@@ -66,8 +66,14 @@ class StoreManager : NSObject, SKPaymentTransactionObserver, SKProductsRequestDe
         
         for transaction in transactions {
             let payment = transaction.payment
-            let completion = self.paymentCompletions[payment.productIdentifier]
-            self.paymentCompletions.removeValue(forKey: payment.productIdentifier)
+            print(payment.productIdentifier)
+            print(self.paymentCompletions)
+            
+            func callCompletion(with value: Bool) {
+                let completion = self.paymentCompletions[payment.productIdentifier]
+                self.paymentCompletions.removeValue(forKey: payment.productIdentifier)
+                completion?(value)
+            }
             
             if transaction.transactionState == .purchased || transaction.transactionState == .restored {
                 
@@ -75,12 +81,12 @@ class StoreManager : NSObject, SKPaymentTransactionObserver, SKProductsRequestDe
                     User.current.hasPurchasedCurrencyUpgrade = true
                 }
                 
-                completion?(true)
+                callCompletion(with: true)
                 queue.finishTransaction(transaction)
             }
                 
             else if transaction.transactionState == .failed {
-                completion?(false)
+                callCompletion(with: false)
                 queue.finishTransaction(transaction)
             }
             

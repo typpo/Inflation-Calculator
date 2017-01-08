@@ -51,16 +51,16 @@ class User : NSObject, WCSessionDelegate {
     
     //MARK: - Upgrades
     
-    private let purchasedKey = "UserHasPurchased-temp10"
+    private let purchasedFlag = "UserHasPurchased"
     
     var hasPurchasedCurrencyUpgrade: Bool {
         get {
             guard let string = UserDefaults.standard.get(Key.currencyUpgradePurchased) as? String else { return false }
-            return string == self.purchasedKey
+            return string == self.purchasedFlag
         }
         
         set(newValue) {
-            let valueToStore = (newValue) ? self.purchasedKey : nil
+            let valueToStore = (newValue) ? self.purchasedFlag : nil
             UserDefaults.standard.update(Key.currencyUpgradePurchased, to: valueToStore)
             UserDefaults.standard.synchronize()
         }
@@ -100,7 +100,7 @@ class User : NSObject, WCSessionDelegate {
     }
     
     var isEligableForRateAlert: Bool {
-        return numberOfAppLaunches % 4 == 0
+        return (numberOfAppLaunches == 4 || numberOfAppLaunches % 10 == 0)
             && numberOfAppLaunches != 0
             && !hasRatedApp
             && !neverShowRateAlert
