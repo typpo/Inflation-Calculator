@@ -98,9 +98,7 @@ class UpgradeViewController : UIViewController {
         }
         
         StoreManager.main.purchase(product, completion: { success in
-            if !success {
-                self.showAlert(title: "Could Not Complete Purchase", message: "We were unable to complete your purchase. This may be due to insufficient funds on your account.")
-            } else {
+            if success {
                 self.purchaseSuccessful()
             }
         })
