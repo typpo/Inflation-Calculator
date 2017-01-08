@@ -45,19 +45,18 @@ class StoreManager : NSObject, SKPaymentTransactionObserver, SKProductsRequestDe
     
     //MARK: - SKPayment
     
-    var paymentCompletions = [SKPayment : (Bool) -> ()]()
+    var paymentCompletions = [String : (Bool) -> ()]()
     
-    func purchase(_ product: SKProduct, completion: ((Bool) -> ())?) {
-        completion?(true)
-        return
-        
+    func purchase(_ product: SKProduct, completion: @escaping (Bool) -> ()) {
         let payment = SKPayment(product: product)
-        
-        if let completion = completion {
-            paymentCompletions.updateValue(completion, forKey: payment)
-        }
+        paymentCompletions.updateValue(completion, forKey: product.productIdentifier)
         
         SKPaymentQueue.default().add(payment)
+    }
+    
+    func restorePurchases(triggerCompletionFor identifier: StoreIdentifier, completion: @escaping (Bool) -> ()) {
+        paymentCompletions.updateValue(completion, forKey: identifier.rawValue)
+        SKPaymentQueue.default().restoreCompletedTransactions()
     }
     
     
@@ -67,17 +66,22 @@ class StoreManager : NSObject, SKPaymentTransactionObserver, SKProductsRequestDe
         
         for transaction in transactions {
             let payment = transaction.payment
-            let completion = self.paymentCompletions[payment]
-            self.paymentCompletions.removeValue(forKey: payment)
+            let completion = self.paymentCompletions[payment.productIdentifier]
+            self.paymentCompletions.removeValue(forKey: payment.productIdentifier)
             
-            if let completion = completion {
-                if transaction.transactionState == .purchased || transaction.transactionState == .restored {
-                    completion(true)
+            if transaction.transactionState == .purchased || transaction.transactionState == .restored {
+                
+                if payment.productIdentifier == StoreIdentifier.allCurrencies.rawValue {
+                    User.current.hasPurchasedCurrencyUpgrade = true
                 }
-                    
-                else if transaction.transactionState == .failed {
-                    completion(false)
-                }
+                
+                completion?(true)
+                queue.finishTransaction(transaction)
+            }
+                
+            else if transaction.transactionState == .failed {
+                completion?(false)
+                queue.finishTransaction(transaction)
             }
             
         }

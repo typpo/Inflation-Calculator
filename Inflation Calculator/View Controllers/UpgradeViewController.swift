@@ -70,8 +70,25 @@ class UpgradeViewController : UIViewController {
     //MARK: - Purchase Flow
     
     @IBAction func purchase() {
+        self.purchase(andWait: true)
+    }
+    
+    func purchase(andWait wait: Bool) {
         if !StoreManager.main.userCanMakePayments {
             self.showAlert(title: "Cannot purchase upgrade", message: "Your Apple ID is not able to make payments. This may be due to parental controls or missing payment information.")
+            return
+        }
+        
+        if !self.productLoaded && wait {
+            let alert = UIAlertController(title: "One Moment", message: "Loading your purchases", preferredStyle: .alert)
+            self.present(alert, animated: true, completion: nil)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                alert.dismiss(animated: true, completion: {
+                    self.purchase(andWait: false)
+                })
+            })
+            
             return
         }
         
@@ -81,25 +98,33 @@ class UpgradeViewController : UIViewController {
         }
         
         StoreManager.main.purchase(product, completion: { success in
-            
             if !success {
                 self.showAlert(title: "Could Not Complete Purchase", message: "We were unable to complete your purchase. This may be due to insufficient funds on your account.")
-                return
+            } else {
+                self.purchaseSuccessful()
             }
-            
-            if success {
-                User.current.hasPurchasedCurrencyUpgrade = true
-                let presentingViewController = self.presentingViewController
-                
-                self.dismiss(animated: true, completion: { _ in
-                    if let presenter = presentingViewController as? NavigationController {
-                        if let inflationController = presenter.viewControllers.first as? InflationViewController {
-                            inflationController.presentCurrencySelector()
-                        }
-                    }
-                })
+        })
+    }
+    
+    @IBAction func restore() {
+        StoreManager.main.restorePurchases(triggerCompletionFor: .allCurrencies, completion: { success in
+            if !success {
+                self.showAlert(title: "Could Not Restore Purchase", message: "You have not previously purchased this item. If this is incorrect, please send an email to cal@calstephens.tech.")
+            } else {
+                self.purchaseSuccessful()
             }
-            
+        })
+    }
+    
+    func purchaseSuccessful() {
+        let presentingViewController = self.presentingViewController
+        
+        self.dismiss(animated: true, completion: { _ in
+            if let presenter = presentingViewController as? NavigationController {
+                if let inflationController = presenter.viewControllers.first as? InflationViewController {
+                    inflationController.presentCurrencySelector()
+                }
+            }
         })
     }
     

@@ -51,7 +51,7 @@ class User : NSObject, WCSessionDelegate {
     
     //MARK: - Upgrades
     
-    private let purchasedKey = "UserHasPurchased-temp2"
+    private let purchasedKey = "UserHasPurchased-temp10"
     
     var hasPurchasedCurrencyUpgrade: Bool {
         get {

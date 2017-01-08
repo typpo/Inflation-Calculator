@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Oes-3d-vLU">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Inflation Calculator-->
+        <scene sceneID="6X1-ab-fI4">
+            <objects>
+                <viewController title="Inflation Calculator" id="Oes-3d-vLU" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="f4c-xY-ewN"/>
+                        <viewControllerLayoutGuide type="bottom" id="ruD-Vd-BLH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rWN-6g-tUE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bVV-gx-a6z">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="109"/>
+                                <color key="backgroundColor" red="0.1568627954" green="0.60784322020000003" blue="0.39607834819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="109" id="NEZ-c7-uov"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lhd-dX-4yw">
+                                <rect key="frame" x="0.0" y="109" width="375" height="8"/>
+                                <color key="backgroundColor" red="0.054901960780000002" green="0.41176470590000003" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="8" id="mC9-jg-MGF"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Lhd-dX-4yw" firstAttribute="top" secondItem="bVV-gx-a6z" secondAttribute="bottom" id="0Tr-AV-Pvx"/>
+                            <constraint firstItem="Lhd-dX-4yw" firstAttribute="leading" secondItem="rWN-6g-tUE" secondAttribute="leading" id="C06-bq-uhI"/>
+                            <constraint firstAttribute="trailing" secondItem="bVV-gx-a6z" secondAttribute="trailing" id="Kch-5t-5Rd"/>
+                            <constraint firstAttribute="trailing" secondItem="Lhd-dX-4yw" secondAttribute="trailing" id="L3w-mk-NfI"/>
+                            <constraint firstItem="bVV-gx-a6z" firstAttribute="top" secondItem="rWN-6g-tUE" secondAttribute="topMargin" id="rIg-be-Yq8"/>
+                            <constraint firstItem="bVV-gx-a6z" firstAttribute="leading" secondItem="rWN-6g-tUE" secondAttribute="leading" id="tRK-Ua-8ge"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="TSP-Cz-FTd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zTW-Kj-Kq9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-258.39999999999998" y="8.5457271364317844"/>
+        </scene>
+    </scenes>
+</document>
